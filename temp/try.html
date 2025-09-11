@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pure CSS Tabs</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #9b59b6;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .tabs {
+      max-width: 800px;
+      margin: 0 auto;
+      list-style: none;
+      position: relative;
+    }
+
+    .tabs li {
+      float: left;
+      width: 25%;
+    }
+
+    .tabs input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .tabs label {
+      display: block;
+      background: #8e44ad;
+      color: #fff;
+      text-align: center;
+      padding: 14px 0;
+      cursor: pointer;
+      font-size: 16px;
+      text-transform: uppercase;
+      transition: background 0.3s;
+    }
+
+    .tabs label:hover {
+      background: #703688;
+    }
+
+    .tab-content {
+      clear: both;
+      background: #612e76;
+      padding: 20px;
+      display: none;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Show content of selected tab */
+    .tabs input:checked + label {
+      background: #612e76;
+    }
+
+    .tabs input:checked + label + .tab-content {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .tabs li {
+        width: 100%;
+      }
+
+      .tabs label {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pure CSS Tabs</h1>
+
+  <ul class="tabs" role="tablist">
+
+    <li>
+      <input type="radio" name="tabs" id="tab1" checked>
+      <label for="tab1" role="tab" aria-selected="true">President</label>
+      <div class="tab-content" id="content1" role="tabpanel">
+        <p>The President leads the organization, oversees all departments, and ensures everything runs smoothly.</p>
+      </div>
+    </li>
+
+    <li>
+      <input type="radio" name="tabs" id="tab2">
+      <label for="tab2" role="tab" aria-selected="false">Marketing</label>
+      <div class="tab-content" id="content2" role="tabpanel">
+        <p>The Marketing team promotes our work, manages social media, and drives outreach efforts.</p>
+      </div>
+    </li>
+
+    <li>
+      <input type="radio" name="tabs" id="tab3">
+      <label for="tab3" role="tab" aria-selected="false">Construction</label>
+      <div class="tab-content" id="content3" role="tabpanel">
+        <p>The Construction team builds physical prototypes, works on hardware, and ensures our designs are functional.</p>
+      </div>
+    </li>
+
+    <li>
+      <input type="radio" name="tabs" id="tab4">
+      <label for="tab4" role="tab" aria-selected="false">Programming</label>
+      <div class="tab-content" id="content4" role="tabpanel">
+        <p>The Programming team develops the code that powers our projects, from microcontrollers to full-stack systems.</p>
+      </div>
+    </li>
+
+  </ul>
+
+</body>
+</html>
