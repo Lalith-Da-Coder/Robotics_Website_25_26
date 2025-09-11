@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robot Information</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="../js/include.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
 </head>
+
 <body>
+  <div id="loading-overlay">
+    <l-grid size="60" speed="1.5" color="white"></l-grid>
+    <p>Loading...</p>
+  </div>
+
+
   <div id="NavBarSection" data-include="template.html#TemplateNavBar"></div>
 
   <!-- Carousel -->
@@ -22,15 +31,29 @@
     <div id="HeroSection" data-include="template.html#TemplateHero"></div>
     <section>
       <div class="hero_sec">
-          <h1>LHS ROBOTICS</h1>
+        <h1>LHS ROBOTICS</h1>
       </div>
-    </section>    <section><div class="Sec1 autoshow2"><h1 class="autoshow3">Hello World!</h1></div></section>
-    <section><div class="Sec2 autoshow2"><h1 class="autoshow3">Hello World!</h1></div></section>
-    <section><div class="Sec3 autoshow2"><h1 class="autoshow3">Hello World!</h1></div></section>
+    </section>
+    <section>
+      <div class="Sec1 autoshow2">
+        <h1 class="autoshow3">Hello World!</h1>
+      </div>
+    </section>
+    <section>
+      <div class="Sec2 autoshow2">
+        <h1 class="autoshow3">Hello World!</h1>
+      </div>
+    </section>
+    <section>
+      <div class="Sec3 autoshow2">
+        <h1 class="autoshow3">Hello World!</h1>
+      </div>
+    </section>
   </main>
 
   <div id="FooterSection" data-include="template.html#TemplateFooter"></div>
 
 
 </body>
+
 </html>

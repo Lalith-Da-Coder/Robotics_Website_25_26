@@ -1,5 +1,8 @@
 const cache = new Map()
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
 
 function splitURL(raw) {
     const u = new URL(raw, location.href);
@@ -30,9 +33,11 @@ async function insert(el, url) {
 }
 
 async function includeAll(root = document) {
+    // await sleep(3000)
     const nodes = Array.from(root.querySelectorAll('[data-include]'));
     await Promise.all(nodes.map(el => insert(el, el.getAttribute('data-include'))))
     enhanceAfterInclude()
+    document.body.classList.add('loaded')
 }
 
 function ensureTitleSuffix() {
@@ -42,12 +47,12 @@ function ensureTitleSuffix() {
 }
 
 function enhanceAfterInclude() {
-    const here = location.pathname.replace(/\/index\.html$/, '/' )
+    const here = location.pathname.replace(/\/index\.html$/, '/')
     document.querySelectorAll("#NavBarSection a[href]").forEach(a => {
         const path = new URL(a.getAttribute('href'), location.origin).pathname.replace(/\/index\.html$/, '/')
         if (path === here) a.setAttribute('aria-current', 'page')
     })
-    
+
     const container = document.getElementById('NavBarSection')
     if (!container) return;
     const icon = container.querySelector('.hamburger-icon')
@@ -55,14 +60,22 @@ function enhanceAfterInclude() {
     if (icon && menu) {
         const toggle = () => {
             const active = menu.classList.toggle('active')
-            icon.setAttribute('aria-expanded', active ? 'true': 'false')
+            icon.setAttribute('aria-expanded', active ? 'true' : 'false')
         }
         icon.addEventListener('click', toggle)
         icon.addEventListener('keydown', e => {
             if (e.key === 'Enter' || e.key == ' ') { e.preventDefault(); toggle(); }
         })
     }
+    document.querySelectorAll(".back-to-top").forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: "smooth" })
+        })
+    })
     ensureTitleSuffix()
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => { includeAll(); });

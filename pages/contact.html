@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacts</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="../js/include.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&libraries=maps&v=beta" defer>
-</script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&libraries=maps&v=beta" defer>
+  </script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
 </head>
+
 <body>
+  <div id="loading-overlay">
+    <l-grid size="60" speed="1.5" color="white"></l-grid>
+    <p>Loading...</p>
+  </div>
   <div id="NavBarSection" data-include="./template.html#TemplateNavBar"></div>
   <main>
     <div id="HeroSection" data-include="./template.html#TemplateHero"></div>
     <section class="contact_sec1">
       <div class="contact_sec1_item1">
         <div class="contact_sec1_item1_a">
-          <div class="heading"> 
-            <div><h1 class="slide-up">GET IN TOUCH</h1></div>
-          </div>
-            <div class="paragraph"> 
-             <div>
-                <p class="slide-up">
-                  We’d love to hear from you! At 
-                  the moment, the best way to get 
-                  in touch is by meeting with us in 
-                  person. We enjoy connecting face-to-face 
-                  and look forward to seeing you soon.
-                </p>
-              </div>
+          <div class="heading">
+            <div>
+              <h1 class="slide-up">GET IN TOUCH</h1>
             </div>
-         
+          </div>
+          <div class="paragraph">
+            <div>
+              <p class="slide-up">
+                We’d love to hear from you! At
+                the moment, the best way to get
+                in touch is by meeting with us in
+                person. We enjoy connecting face-to-face
+                and look forward to seeing you soon.
+              </p>
+            </div>
+          </div>
+
         </div>
         <div class="contact_sec1_item1_b">
-          <div class="heading"> 
-            <div><h1 class="slide-up">Location</h1></div>
+          <div class="heading">
+            <div>
+              <h1 class="slide-up">Location</h1>
+            </div>
           </div>
-          <div class="paragraph"> 
+          <div class="paragraph">
             <div>
               <p class="slide-up">3301 S Bagdad Rd, Leander, TX 78641 United States</p>
             </div>
           </div>
         </div>
-        
+
       </div>
       <div class="contact_sec1_item2">
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.3774404791134!2d-97.85335612344609!3d30.538638494985445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b2970394b9265%3A0x61bff11e1e554717!2sLeander%20High%20School!5e0!3m2!1sen!2sus!4v1757299925064!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.3774404791134!2d-97.85335612344609!3d30.538638494985445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b2970394b9265%3A0x61bff11e1e554717!2sLeander%20High%20School!5e0!3m2!1sen!2sus!4v1757299925064!5m2!1sen!2sus"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
     <section class="contact_sec2">
@@ -59,4 +72,5 @@
 
 
 </body>
+
 </html>

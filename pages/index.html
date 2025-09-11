@@ -11,12 +11,17 @@
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
   <link rel="stylesheet" href="style.css">
   <script type="module" src="../js/include.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
 </head>
 
 <body id="top">
+  <div id="loading-overlay">
+    <l-grid size="60" speed="1.5" color="white"></l-grid>
+    <p>Loading...</p>
+  </div>
   <div id="NavBarSection" data-include="./template.html#TemplateNavBar"></div>
   <main>
-    <div>  
+    <div>
       <section id="HeroSection" class="hero_sc" data-include="./template.html#TemplateHero"></section>
       <section>
         <div class="Sec1 ">
