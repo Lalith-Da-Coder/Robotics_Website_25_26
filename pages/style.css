@@ -203,9 +203,10 @@ section {
 
 .Sec1 {
   background-color: #645d7f; 
-  height: clamp(45rem,100vw,67rem); 
+  height: clamp(45rem,100vw,61rem); 
   display: flex;
   align-items: center;
+  padding-bottom: 10rem;
 }
 
 .subsec1 { 
@@ -308,7 +309,7 @@ button:active {
 
  .Sec2 {
   background-color: #504a65; 
-  height: 100vh;
+  height: 120vh;
 }
 
 
@@ -962,37 +963,64 @@ hr {width: 80vw;}
   }
 } */
 
-/* ------------------------------- CONTACT PAGE cp ------------------------- */
+/* ------------------------------- CONTACT PAGE cp --------------------------------------- */
+
+/* --------------------- Contact page Hero Section ------------------------ */
+
+.hero_sec_contact {
+  background-color: #000000;
+  color: rgb(0, 0, 0);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+
+}
+
+.hero_sec_contact h1 {
+  font-size: clamp(1rem, 11vw, 70rem);
+  transform: scaleY(2); 
+  text-shadow: -1px -1px 0 #645d7f, 1px -1px 0 #645d7f, -1px 1px 0 #645d7f, 1px 1px 0 #645d7f;
+
+}
+
+@media (max-width: 768px) {
+  .hero_sec_contact h1 {
+    opacity: 1;
+    text-shadow: -0.5px -0.5px 0 #645d7f, 0.5px -0.5px 0 #645d7f, -0.5px 0.5px 0 #645d7f, 0.5px 0.5px 0 #645d7f; }}
+
 /* ------------------ Contact Section 1------------------ */
 .contact_sec1 {
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
-  background-color: #504b65; 
-  position: static;
-  color: white;
-  height: 80vh; 
-  display: flex;
-  flex-wrap: wrap;       
-  align-items: stretch;
-  padding: 1rem;
+    display: flex;
+    background-color: #56516d;
+    color: white;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    position: sticky;
+    height: clamp(1rem, 100vh, 45rem);
 }
+
+@media (max-width: 768px) {.contact_sec1{flex-direction: column; text-align: center;}}
 
 /* Left Column */
 .contact_sec1_item1 {
-  flex: 1 1 40%; 
+  flex: 40%; 
   padding: 1rem;
   border-radius: 10px;
   display: flex;
-  height: 50vh;
+  height: 1vh;
   flex-direction: column;
   margin-top: 3rem;
 }
 
+
 .contact_sec1_item2 {position: relative; }
 
-.contact_sec1_item1_a h1 {font-size: clamp(1.3rem, 5vw, 5rem);}
-.contact_sec1_item1_b h1 {font-size: clamp(1.3rem, 5vw, 2.5rem);}
-.contact_sec1_item1_a p, .contact_sec1_item1_b p {font-size: clamp(0rem, 5vw, 1.4rem);}
+.contact_sec1_item1_a h1, .contact_sec1_item1_b h1 {font-size: clamp(1.3rem, 5vw, 4rem);}
+.contact_sec1_item1_a p, .contact_sec1_item1_b p {font-size: clamp(0rem, 3vw, 1.5rem);}
 
 
 .contact_sec1_item1_a,
@@ -1009,7 +1037,7 @@ hr {width: 80vw;}
   align-items: center;
   justify-content: center;
   height: 50vh;
-  padding-top: 5rem;
+  padding-top: 4rem;
 }
 
 .map {
@@ -1035,16 +1063,37 @@ hr {width: 80vw;}
   .slide-up {
     animation: none;
   }
+  .contact_sec1_tem2 {padding-top: 0rem;}
 
-  .contact_sec1_item1 {padding: 0; padding-top: 1rem; margin: 0;}
-  .contact_sec1_item2 {bottom: 7rem;}
+  /* .contact_sec1_item1 {padding: 0; padding-top: 1rem; margin: 0;} */
 
   .map {border-radius: 20px;}
 }
 
 /* ---------------- Contact Page Section 2 cp2 -------------------- */
 .contact_sec2 {
-  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: #373447;
+  box-sizing: border-box;
+  padding: 1rem 1rem clamp(1rem,10vw,8rem) 1rem;
+  
+  
+}
+
+/* ----------------------------- Contact Page Section 3 cp3 ----------------------- */
+
+
+.contact_sec2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: #7968bd;
+  padding:  1rem 1rem 4rem 1rem;
+  height: 100vh;
 }
 
 /* ------------ About Page Hero Section----------------- */
