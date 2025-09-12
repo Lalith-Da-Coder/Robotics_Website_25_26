@@ -9,6 +9,7 @@ body {
   background-color: #15141b;
   font-family: 'Raleway', sans-serif;
   font-weight: 100; 
+
 }
 
 body:not(.loaded) main,
@@ -57,6 +58,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   letter-spacing: 2.5px;
 }
+
 
 
 
@@ -109,6 +111,7 @@ nav ul li a  {
   text-decoration: none;
   font-size: 1.1rem;
   position: relative;
+  cursor: pointer;
   
 }
 
@@ -143,6 +146,7 @@ nav ul li:hover {
     /* Default text style */
     color: black;
     transition: all 0.3s ease-in-out; 
+    cursor: pointer;
   }
 
   @media (max-width:768px) { nav {display: none;}}
@@ -199,18 +203,17 @@ section {
 
 .Sec1 {
   background-color: #645d7f; 
-  min-height: 100vh; 
+  height: clamp(45rem,100vw,67rem); 
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 5rem;
 }
 
 .subsec1 { 
   display: flex;
   flex-wrap: wrap;       
   margin-top: 0vh;       
-  padding: 2vw;          
+  padding-left: 2vw;          
+  padding-right: 2vw;          
   width: 100%;
   gap: 3vw;             
 }
@@ -259,6 +262,10 @@ section {
   }
 }
 
+@media (max-width:768px) {.scroll-reveal p span {
+  animation-range-start: cover 0vh;
+  animation-range-end: cover 27vh;}}
+
 .meetTeam {
 
   font-weight: 700;
@@ -303,6 +310,13 @@ button:active {
   background-color: #504a65; 
   height: 100vh;
 }
+
+
+@media (max-width: 768px) {
+  .Sec2{
+    height: 57vh;
+  }
+}
 .subsec2_title_h1 {
   padding-top: 6.5rem;
   font-size: clamp(0.4rem, 5vw, 4rem);
@@ -320,7 +334,8 @@ button:active {
   display: flex;
   justify-content: space-evenly;
   gap: 4rem;
-  padding: 0 3rem 0 3rem
+  padding: 0 3rem 0 3rem;
+
  
 }
 
@@ -329,13 +344,13 @@ button:active {
   max-width: 25vw;
   min-width: 150px;
   height: auto;
+
   
 }
 
 
 @media (max-width: 768px) {.card {aspect-ratio: 10.5/16;}}
 
-/* Mobile Specific Overrides */
 /* @media (max-width: 768px) {
   .carousel .group {
     display: block;
@@ -355,7 +370,6 @@ button:active {
   overflow: hidden;
   display: flex;
 }
-
 .carousel > * {
   flex: 0 0 100%;
 }
@@ -380,11 +394,7 @@ button:active {
   background-color: #3c384c;
 }
 
-.card:hover {
-  transform: scale(1.1);
-  box-shadow: rgba(0, 0, 0, 0.25) 10px 10px 30px 0;
-  z-index: 2;
-}
+
 
 .card-text {
   position: absolute;
@@ -392,7 +402,7 @@ button:active {
   left: 0;
   right: 0;
   background: #2b2837;
-  padding: 1.5rem;
+  padding: 0.6em;
   color: #fff;
   font-size: 1rem;
   text-align: center;
@@ -477,7 +487,7 @@ button:active {
   padding: 0;
   border-radius: 60px;
   font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
-  padding: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1rem, 2vw, 1.8rem);
 }
 
 .subsec3_btn a {text-decoration: none; color: white;}
@@ -691,7 +701,14 @@ button:active {
 .hamburger.active {
   display: flex;
   max-height: 300px;
+  animation: moveDown 1s both;
 }
+
+@keyframes moveDown {
+  from {transform: translateY(-100%); z-index: 0}
+  to {transform: translateY(0%)}
+}
+
 .hamburger ul {
   padding: 1rem 0;
   margin: 0;
@@ -706,6 +723,8 @@ button:active {
   text-decoration: none;
   color: white;
   font-size: 1.1rem;
+  cursor: pointer;
+
 }
 .hamburger ul li:hover {
   color: black;
@@ -715,7 +734,11 @@ button:active {
 
 .hamburger ul li a:hover {
   color: rgb(229, 229, 229);
-  font-weight: 600;}
+  font-weight: 600;
+  cursor: pointer;
+
+}
+  
 
 
   @media (max-width: 768px) {
@@ -743,7 +766,7 @@ hr {width: 80vw;}
 }
 
 .footer_links h1 {font-size: clamp(0.6rem, 1vw, 1.25rem); text-transform: uppercase;}
-.footer_links ul li a{ font-size: clamp(1rem, 2vw, 1.9rem);}
+.footer_links ul li a{ font-size: clamp(1rem, 2vw, 1.9rem); cursor: pointer;}
 
 .footer_links ul {
   padding: 0;
@@ -802,7 +825,7 @@ hr {width: 80vw;}
   list-style: none;
 }
 
-.footer_btmrow ul li a, .footer_btmrow h1 {font-size: clamp(0.4rem, 1vw, 1rem);}
+.footer_btmrow ul li a, .footer_btmrow h1 {font-size: clamp(0.4rem, 1vw, 1rem);cursor: pointer;}
 .footer_heading span {opacity: 1;}
 
 @media (max-width:768px) {
@@ -863,7 +886,7 @@ hr {width: 80vw;}
 .footer_social a::before {
   content: "";
   position: absolute;
-  width: 90px;
+  width: 118px;
   height: 1px;
   top: 33px;
   left: 0px;
@@ -1092,12 +1115,13 @@ hr {width: 80vw;}
   .about_sec1_leads ul {
     grid-template-columns: repeat(3, 1fr); 
     gap: 3rem;}
+}
 
-  .about_sec1 {
+@media (max-width: 768px) {
+  .about_sec1{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-  }
-}
+}}
 
 .about_sec1_leads ul li {
   width: clamp(8rem, 22vw, 24rem);
@@ -1157,7 +1181,8 @@ hr {width: 80vw;}
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
   box-sizing: border-box;
-  padding-bottom: clamp(1rem,10vw,8rem);
+  padding: 1rem 1rem clamp(1rem,10vw,8rem) 1rem;
+
 }
 
 .about_sec2 h1 {
@@ -1176,8 +1201,13 @@ hr {width: 80vw;}
   height: auto;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  background-color: black; 
+  background-color: black;
+  transition: transform 0.7s ease-out;
 }
+
+video:hover{   transform: scale(1.025);
+  transition: transform 0.5s ease-out;}
+
 
 @media (max-width: 768px) {
   .about_sec2 {
