@@ -4,55 +4,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robot Information</title>
+  <title>Home</title>
+  <!-- font-family: "Spartan", sans-serif; -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
   <link rel="stylesheet" href="style.css">
   <script type="module" src="../js/include.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
 </head>
 
-<body>
+<body id="top">
+  <!-- <audio id="click-sound" src="click_effect.mp3" preload="auto"></audio> -->
   <div id="loading-overlay">
     <l-grid size="60" speed="1.5" color="white"></l-grid>
     <p>Loading...</p>
   </div>
-
-
-  <div id="NavBarSection" data-include="template.html#TemplateNavBar"></div>
-
-  <!-- Carousel -->
-  <!-- <div class="carousel">
-    <div class="card">1</div>
-    <div class="card">2</div>    
-    <div class="card">3</div>    
-  </div> -->
-
-
+  <div id="NavBarSection" data-include="./template.html#TemplateNavBar"></div>
   <main>
-    <div id="HeroSection" data-include="template.html#TemplateHero"></div>
-    <section>
-      <div class="hero_sec">
-        <h1>LHS ROBOTICS</h1>
+    <div>
+      <section>
+        <div class="hero_sec">
+            <h1>Meet <i>LUNA!</i></h1>
+        </div>
+      </section>    
+      
+      <div id="parent">
+        <div class="robot_desc">
+            <ul>
+                <li id="feature1">
+                    <h1>Feature 1</h1>
+                    <p>This describes the first feature of the robot.</p>
+                </li>
+                <li id="feature2">
+                    <h1>Feature 2</h1>
+                    <p>This describes the second feature of the robot.</p>
+                </li>
+                <li id="feature3">
+                    <h1>Feature 3</h1>
+                    <p>This describes the third feature of the robot.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="robot_img">
+            <img src="robot.png" alt="Robot Image">
+        </div>
       </div>
-    </section>
-    <section>
-      <div class="Sec1 autoshow2">
-        <h1 class="autoshow3">Hello World!</h1>
-      </div>
-    </section>
-    <section>
-      <div class="Sec2 autoshow2">
-        <h1 class="autoshow3">Hello World!</h1>
-      </div>
-    </section>
-    <section>
-      <div class="Sec3 autoshow2">
-        <h1 class="autoshow3">Hello World!</h1>
-      </div>
-    </section>
+    <!-- <section class="Sec4">h</section> -->
+    </div>
+
+
   </main>
 
-  <div id="FooterSection" data-include="template.html#TemplateFooter"></div>
+<script>
+  const parent = document.getElementById('parent');
+  const feature1 = document.getElementById('feature1');
+  const feature2 = document.getElementById('feature2');
+  const feature3 = document.getElementById('feature3');
 
+  function handleScroll() {
+      if (window.innerWidth <= 768) {
+          feature1.classList.add('visible');
+          feature2.classList.add('visible');
+          feature3.classList.add('visible');
+          return;
+      }
+
+      const parentTop = parent.offsetTop;
+      const parentHeight = parent.offsetHeight;
+      const scrollY = window.scrollY + window.innerHeight / 2;
+
+      const scrollProgress = (scrollY - parentTop) / parentHeight * 100;
+
+      if (scrollProgress >= 25) feature1.classList.add('visible');
+      if (scrollProgress >= 60) feature2.classList.add('visible');
+      if (scrollProgress >= 80) feature3.classList.add('visible');
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleScroll);
+  
+  handleScroll();
+</script>
+
+  <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
+  <!-- <script>
+    const clickSound = document.getElementById('click-sound');
+
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(event) {
+        if (
+          event.button === 0 &&
+          !event.metaKey &&
+          !event.ctrlKey &&
+          !event.shiftKey &&
+          !event.altKey
+        ) {
+          event.preventDefault();
+          clickSound.currentTime = 0;
+          clickSound.play().catch(() => {
+          });
+
+          setTimeout(() => {
+            if (link.hash && link.pathname === window.location.pathname) {
+              const target = document.getElementById(link.hash.slice(1));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                return;
+              }
+            }
+            window.location.href = link.href;
+          }, 120);
+        }
+      });
+    });
+  </script> -->
 
 </body>
 

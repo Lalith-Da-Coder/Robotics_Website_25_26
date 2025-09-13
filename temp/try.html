@@ -1,132 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pure CSS Tabs</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot Example</title>
+<style>
     body {
-      font-family: 'Lato', sans-serif;
-      background: #9b59b6;
-      color: #fff;
-      padding: 20px;
+        margin: 0;
+        font-family: sans-serif;
     }
 
-    h1 {
-      font-size: 40px;
-      text-transform: uppercase;
-      margin-bottom: 30px;
-      text-align: center;
+    #parent {
+        display: flex;               
+        flex-direction: row;         
+        align-items: flex-start; 
+        justify-content: center;    
+        gap: 20px;                   
+        padding: 20px;
+        height: 300vh; /* Tall enough to scroll */
+        position: relative;
     }
 
-    .tabs {
-      max-width: 800px;
-      margin: 0 auto;
-      list-style: none;
-      position: relative;
+    .robot_img {
+        position: sticky;            
+        top: 5rem;                   
+        height: 82vh;
+        width: 50vw;
+        border: 1px solid black;
     }
 
-    .tabs li {
-      float: left;
-      width: 25%;
-    }
-
-    .tabs input[type="radio"] {
-      position: absolute;
-      opacity: 0;
-    }
-
-    .tabs label {
-      display: block;
-      background: #8e44ad;
-      color: #fff;
-      text-align: center;
-      padding: 14px 0;
-      cursor: pointer;
-      font-size: 16px;
-      text-transform: uppercase;
-      transition: background 0.3s;
-    }
-
-    .tabs label:hover {
-      background: #703688;
-    }
-
-    .tab-content {
-      clear: both;
-      background: #612e76;
-      padding: 20px;
-      display: none;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    /* Show content of selected tab */
-    .tabs input:checked + label {
-      background: #612e76;
-    }
-
-    .tabs input:checked + label + .tab-content {
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      .tabs li {
+    .robot_img img {
         width: 100%;
-      }
-
-      .tabs label {
-        padding: 12px;
-      }
+        height: 100%;
+        object-fit: cover;
     }
-  </style>
+
+    .robot_desc {
+        position: sticky;           
+        top: 5rem;
+        width: 35vw;                 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical centering */
+        align-items: left;     /* horizontal centering */
+        padding: 10px;
+        height: 80vh;
+    }
+
+    .robot_desc ul {
+        padding-left: 0;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly; /* even spacing vertically */
+        height: 100%;
+    }
+
+    .robot_desc li {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease-out;
+    }
+
+    .robot_desc h1 {font-size: clamp(1rem, 5vw, 2.5rem);}
+    .robot_desc p {font-size: clamp(0.1rem, 3vw, 1.5rem);}
+    .robot_desc li.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Responsive for mobile screens */
+    @media (max-width: 768px) {
+        #parent {
+            height: 95vh;
+            flex-direction: column; /* stack divs vertically */
+            flex-direction: column-reverse;
+        }
+        .robot_desc {
+            position: static;
+            width: 90vw;
+            overflow: hidden; /* hide overflowing content */
+            height: auto; /* allow it to shrink naturally */
+        }
+        .robot_img {
+            position: static;
+            width: 93vw;
+            height: 50vh;
+        }
+    }
+</style>
 </head>
 <body>
 
-  <h1>Pure CSS Tabs</h1>
+<div style="height: 100vh"><h1>hi</h1></div>
 
-  <ul class="tabs" role="tablist">
+<div id="parent">
+    <div class="robot_desc">
+        <ul>
+            <li id="feature1">
+                <h1>Feature 1</h1>
+                <p>This describes the first feature of the robot.</p>
+            </li>
+            <li id="feature2">
+                <h1>Feature 2</h1>
+                <p>This describes the second feature of the robot.</p>
+            </li>
+            <li id="feature3">
+                <h1>Feature 3</h1>
+                <p>This describes the third feature of the robot.</p>
+            </li>
+        </ul>
+    </div>
+    <div class="robot_img">
+        <img src="robot.png" alt="Robot Image">
+    </div>
+</div>
+<script>
+  const parent = document.getElementById('parent');
+  const feature1 = document.getElementById('feature1');
+  const feature2 = document.getElementById('feature2');
+  const feature3 = document.getElementById('feature3');
 
-    <li>
-      <input type="radio" name="tabs" id="tab1" checked>
-      <label for="tab1" role="tab" aria-selected="true">President</label>
-      <div class="tab-content" id="content1" role="tabpanel">
-        <p>The President leads the organization, oversees all departments, and ensures everything runs smoothly.</p>
-      </div>
-    </li>
+  function handleScroll() {
+      if (window.innerWidth <= 768) {
+          feature1.classList.add('visible');
+          feature2.classList.add('visible');
+          feature3.classList.add('visible');
+          return;
+      }
 
-    <li>
-      <input type="radio" name="tabs" id="tab2">
-      <label for="tab2" role="tab" aria-selected="false">Marketing</label>
-      <div class="tab-content" id="content2" role="tabpanel">
-        <p>The Marketing team promotes our work, manages social media, and drives outreach efforts.</p>
-      </div>
-    </li>
+      const parentTop = parent.offsetTop;
+      const parentHeight = parent.offsetHeight;
+      const scrollY = window.scrollY + window.innerHeight / 2;
 
-    <li>
-      <input type="radio" name="tabs" id="tab3">
-      <label for="tab3" role="tab" aria-selected="false">Construction</label>
-      <div class="tab-content" id="content3" role="tabpanel">
-        <p>The Construction team builds physical prototypes, works on hardware, and ensures our designs are functional.</p>
-      </div>
-    </li>
+      const scrollProgress = (scrollY - parentTop) / parentHeight * 100;
 
-    <li>
-      <input type="radio" name="tabs" id="tab4">
-      <label for="tab4" role="tab" aria-selected="false">Programming</label>
-      <div class="tab-content" id="content4" role="tabpanel">
-        <p>The Programming team develops the code that powers our projects, from microcontrollers to full-stack systems.</p>
-      </div>
-    </li>
+      if (scrollProgress >= 25) feature1.classList.add('visible');
+      if (scrollProgress >= 60) feature2.classList.add('visible');
+      if (scrollProgress >= 80) feature3.classList.add('visible');
+  }
 
-  </ul>
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleScroll);
+  
+  handleScroll();
+</script>
+
 
 </body>
 </html>

@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <!-- font-family: "Spartan", sans-serif; -->
-
-
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
   <link rel="stylesheet" href="style.css">
   <script type="module" src="../js/include.js"></script>
@@ -15,6 +13,7 @@
 </head>
 
 <body id="top">
+  <audio id="click-sound" src="click_effect.mp3" preload="auto"></audio>
   <div id="loading-overlay">
     <l-grid size="60" speed="1.5" color="white"></l-grid>
     <p>Loading...</p>
@@ -23,7 +22,7 @@
   <main>
     <div>
       <section id="HeroSection" class="hero_sc" data-include="./template.html#TemplateHero"></section>
-      <section>
+      <section style="  position: sticky;top: 0;">
         <div class="Sec1 ">
           <div class="subsec1">
             <div class="subsec1_img"><img src="" alt="Meet the Team"></div>
@@ -39,7 +38,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section style="  position: sticky;top: 0;">
         <div class="Sec2 autoshow2 ">
           <div class="subsec2">
             <div class="subsec2_title ">
@@ -83,11 +82,11 @@
       </section>
 
       <section>
-        <div class="Sec3 ">
+        <div class="Sec3" style="  position: sticky;top: 0;">
           <div class="subsec3">
             <div class="subsec3_heading">
               <h1>The Challenge That Drives Us, <br> Introducing BEST Robotics.</h1>
-              <button class="subsec3_btn"> <a href="https://www.bestrobotics.org.">Learn More ➜</a></button>
+              <button class="subsec3_btn"> <a href="https://www.bestrobotics.org">Learn More ➜</a></button>
             </div>
             <div class="subsec3_card-holder">
               <div class="subsec3_card">
@@ -182,7 +181,37 @@
 
   </main>
   <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
+  <script>
+    const clickSound = document.getElementById('click-sound');
 
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(event) {
+        if (
+          event.button === 0 &&
+          !event.metaKey &&
+          !event.ctrlKey &&
+          !event.shiftKey &&
+          !event.altKey
+        ) {
+          event.preventDefault();
+          clickSound.currentTime = 0;
+          clickSound.play().catch(() => {
+          });
+
+          setTimeout(() => {
+            if (link.hash && link.pathname === window.location.pathname) {
+              const target = document.getElementById(link.hash.slice(1));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                return;
+              }
+            }
+            window.location.href = link.href;
+          }, 120);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
