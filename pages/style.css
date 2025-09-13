@@ -188,11 +188,6 @@ nav ul li:hover {
   border-top-right-radius: 60px;
 }
 
-section {
-  position: sticky;
-  top: 0;
-}
-
 @media (max-width: 768px) {
   .Sec1, .Sec2, .Sec3 {
     border-top-left-radius: 20px;
@@ -202,6 +197,7 @@ section {
 /* ----------------------Section 1/ Sub-Section 1 -------------------- */
 
 .Sec1 {
+
   background-color: #645d7f; 
   height: clamp(45rem,100vw,61rem); 
   display: flex;
@@ -999,7 +995,7 @@ hr {width: 80vw;}
     color: white;
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
-    position: sticky;
+    
     height: clamp(1rem, 100vh, 45rem);
 }
 
@@ -1142,7 +1138,6 @@ hr {width: 80vw;}
   border-top-right-radius: 60px;
   text-align: center;
   box-sizing: border-box;
-  position: sticky;
   height: 100vh;
   padding-bottom: clamp(-10rem,5vw,2rem)
 }
@@ -1222,7 +1217,8 @@ hr {width: 80vw;}
 
 /* ---------------------------------- About Page Section 2 ap2----------------------- */
 
-.about_sec2{  display: flex;
+.about_sec2{ 
+   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
@@ -1307,6 +1303,231 @@ video:hover{   transform: scale(1.025);
 
 
 .about_subsec3 ul li p {font-size: clamp(1rem, 5vw, 1.75rem);}
+
+
+/* ------------------------------- ROBOT PAGE SECTION 1 ------------------------------------- */
+
+
+.robot_sec1 {
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  background-color: #3c384c;
+
+}
+
+@media (max-width: 768px) {.robot_sec1 {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;}}
+
+.robot_sec1 {
+  height: 290vh;
+  display: flex;
+  justify-content: center;
+  background-color: #3c384c;
+}
+
+.robot_subsec1{
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.robot_subsec1_heading { 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 85%;
+  color: white;
+}
+
+.robot_subsec1_heading p {  font-size: clamp(0.1rem, 3vw, 1.4rem);
+}
+
+.robot_subsec1_heading h1 { 
+  font-size: clamp(5rem, 5vw, 4rem);
+  font-weight: 600;
+  text-align: center;
+  transform:  scaleY(1.4);
+  text-align: center;
+  position: sticky; 
+
+}
+
+
+
+/* .subsec3_btn {
+  width: 28%;
+  text-decoration: none;
+  color: white;
+  padding: 0;
+  border-radius: 60px;
+  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+  padding: clamp(1rem, 2vw, 1.8rem);
+}
+
+.subsec3_btn a {text-decoration: none; color: white;} */
+
+
+.robot_subsec1_card-holder {
+  height: 250vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin:0;
+}
+
+
+.robot_subsec1_card {
+  width: 80%;
+  height: 50vh;
+  background-color: rgb(23, 23, 34);
+  color: white;
+  position: sticky;
+  margin: 5rem;
+  top: 30vh;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem 0 5rem;
+}  
+
+.robot_subsec1_cardnum {font-size: clamp(2rem, 5vw, 10rem);}
+
+.robot_subsec1_cardtxt {
+  width: min(100%, 900px);
+  text-align: left;
+}
+
+
+.robot_subsec1_cardtxt h1 {font-size: clamp(1.5rem, 5vw, 4rem);}
+.robot_subsec1_cardtxt p {font-size: clamp(0.8rem, 2vw, 1.75rem);}
+
+.robot_subsec1_card:first-child {
+  background-color: #728ada;
+  position: sticky;
+}
+
+.robot_subsec1_card:nth-child(2) { background-color: #5f73b6;  }
+.robot_subsec1_card:nth-child(3) { background-color: #39466e; }
+.robot_subsec1_card:nth-child(4) { background-color: #20273e;  }
+
+@media (max-width: 768px) {
+  .robot_subsec1 {height: 280vh;}
+  .robot_subsec1_card{  border-radius: 20px; }
+  .robot_subsec1_card-holder h1 { padding-left: 0rem; text-align: center; }
+  .robot_subsec1_card {display: block; padding:1rem 1rem; }
+  .robot_subsec1_heading {justify-content: center;}
+  .robot_subsec1_heading h1{text-align: center;   font-size: clamp(0.1rem, 3.5vw, 3.5rem); 
+  }
+  .robot_subsec1_cardtxt{text-align: center;}
+  /* .subsec3_btn {    font-size: clamp(0.7rem, 1vw + 0.7rem, 1rem);
+    padding: 0.5rem 1rem 0.5rem; width: 50%; margin-top: 1rem;} */
+
+}
+
+/* --------------------------- Robot Page Section 2 rp2 ------------------- */
+#parent {
+  display: flex;               
+  flex-direction: row;         
+  align-items: flex-start; 
+  justify-content: center;    
+  gap: 20px;                   
+  padding: 20px;
+  height: 300vh; /* Tall enough to scroll */
+  position: relative;
+  color: white;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  background-color: #5e598f;
+  position: sticky;
+  top: 0;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  #parent {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
+.robot_img {
+  position: sticky;            
+  top: 5rem;                   
+  height: 82vh;
+  width: 50vw;
+  border: 1px solid black;
+}
+
+.robot_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.robot_desc {
+  position: sticky;           
+  top: 5rem;
+  width: 35vw;                 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: left;     /* horizontal centering */
+  padding: 10px;
+  height: 80vh;
+}
+
+.robot_desc ul {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* even spacing vertically */
+  height: 100%;
+}
+
+.robot_desc li {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.robot_desc h1 {font-size: clamp(1rem, 5vw, 2.5rem);}
+.robot_desc p {font-size: clamp(0.1rem, 3vw, 1.5rem);}
+.robot_desc li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive for mobile screens */
+@media (max-width: 768px) {
+  #parent {
+      height: 95vh;
+      flex-direction: column; /* stack divs vertically */
+      flex-direction: column-reverse;
+  }
+  .robot_desc {
+      position: static;
+      width: 90vw;
+      overflow: hidden; /* hide overflowing content */
+      height: auto; /* allow it to shrink naturally */
+  }
+  .robot_img {
+      position: static;
+      width: 93vw;
+      height: 50vh;
+  }
+}
+
 
 /* -------------------- Animations------------------- */
 @keyframes autoshowSection {
