@@ -9,6 +9,7 @@ body {
   background-color: #15141b;
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
+  
 
 }
 
@@ -155,6 +156,7 @@ header {
 main {
   flex: 1;
   overflow: visible;
+  
 }
 
 header .logo img {
@@ -267,6 +269,7 @@ nav ul li a:hover {
   color: white;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
+  
 }
 
 @media (max-width: 768px) {
@@ -300,18 +303,63 @@ nav ul li a:hover {
 }
 
 .subsec1_img {
-  width: 40vw;        /* Added a max-width for control */
+  position: relative;
+  width: 40vw;
+  height: 90vh;
   border: 1px solid black;
   border-radius: 30px;
-  aspect-ratio: 16 / 9;
   overflow: hidden;
-  height: 90vh;
+  aspect-ratio: 16/9;
+  perspective: 1000px;
+  transition: transform 0.3s ease;
 }
-
+/* Image just fills the container */
 .subsec1_img img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
+@media (max-width: 768px) {
+  .subsec1_img {
+    width: auto;
+    height: auto;
+    aspect-ratio: auto;
+  }
+}
+/* Hover zones */
+.subsec1_img div {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 2;
+}
+
+.subsec1_img .top-left { top: 0; left: 0; }
+.subsec1_img .top-right { top: 0; right: 0; }
+.subsec1_img .bottom-left { bottom: 0; left: 0; }
+.subsec1_img .bottom-right { bottom: 0; right: 0; }
+
+/* Tilt the WHOLE .subsec1_img depending on hover zone */
+.subsec1_img:has(.top-left:hover) {
+  transform: rotateX(8deg) rotateY(-8deg) scale(1.01);
+}
+.subsec1_img:has(.top-right:hover) {
+  transform: rotateX(8deg) rotateY(8deg) scale(1.05);
+}
+.subsec1_img:has(.bottom-left:hover) {
+  transform: rotateX(-8deg) rotateY(-8deg) scale(1.05);
+}
+.subsec1_img:has(.bottom-right:hover) {
+  transform: rotateX(-8deg) rotateY(8deg) scale(1.05);
+}
+/* @media (max-width: 768px) {
+  .subsec1_img {
+    width: auto;
+    height: auto;
+    aspect-ratio: auto;
+  }
+} */
 .subsec1_txt {
   flex: 1 1 10%;
   text-align: left;
@@ -588,13 +636,14 @@ button:active {
 
 
 .subsec3_btn {
-  width: 28%;
+  width: clamp(10rem,50vw,30rem);
   text-decoration: none;
   color: white;
   padding: 0;
   border-radius: 60px;
   font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
   padding: clamp(1rem, 2vw, 1.8rem);
+  margin-top: clamp(1rem, 5vw, 2rem);
 }
 
 
@@ -617,6 +666,7 @@ button:active {
   align-items: center;
   padding: 0;
   margin: 0;
+  
 }
 
 
@@ -704,10 +754,10 @@ button:active {
   }
 
   .subsec3_btn {
-    font-size: clamp(0.7rem, 1vw + 0.7rem, 1rem);
+    /* font-size: clamp(0.7rem, 1vw + 0.7rem, 1rem);
     padding: 0.5rem 1rem 0.5rem;
     width: 50%;
-    margin-top: 1rem;
+    margin-top: 1rem; */
   }
 
 }
@@ -1694,176 +1744,6 @@ video:hover {
 /* ------------------------------- ROBOT PAGE SECTION 1 ------------------------------------- */
 
 
-.robot_sec1 {
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
-  background-color: #3c384c;
-
-}
-
-@media (max-width: 768px) {
-  .robot_sec1 {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-  }
-}
-
-.robot_sec1 {
-  height: 290vh;
-  display: flex;
-  justify-content: center;
-  background-color: #3c384c;
-}
-
-.robot_subsec1 {
-  margin-top: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.robot_subsec1_heading {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  width: 85%;
-  color: white;
-}
-
-.robot_subsec1_heading p {
-  font-size: clamp(0.1rem, 3vw, 1.4rem);
-}
-
-.robot_subsec1_heading h1 {
-  font-size: clamp(5rem, 5vw, 4rem);
-  font-weight: 600;
-  text-align: center;
-  transform: scaleY(1.4);
-  text-align: center;
-  position: sticky;
-
-}
-
-
-
- .subsec3_btn {
-  width: 28%;
-  text-decoration: none;
-  color: white;
-  padding: 0;
-  border-radius: 60px;
-  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
-  padding: clamp(1rem, 2vw, 1.8rem);
-}
-
-.subsec3_btn a {text-decoration: none; color: white;} 
-
-
-.robot_subsec1_card-holder {
-  height: 250vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-
-
-.robot_subsec1_card {
-  width: 80%;
-  height: 50vh;
-  background-color: rgb(23, 23, 34);
-  color: white;
-  position: sticky;
-  margin: 5rem;
-  top: 30vh;
-  border-radius: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5rem 0 5rem;
-}
-
-.robot_subsec1_cardnum {
-  font-size: clamp(2rem, 5vw, 10rem);
-}
-
-.robot_subsec1_cardtxt {
-  width: min(100%, 900px);
-  text-align: left;
-}
-
-
-.robot_subsec1_cardtxt h1 {
-  font-size: clamp(1.5rem, 5vw, 4rem);
-}
-
-.robot_subsec1_cardtxt p {
-  font-size: clamp(0.8rem, 2vw, 1.75rem);
-}
-
-.robot_subsec1_card:first-child {
-  background-color: #728ada;
-  position: sticky;
-}
-
-.robot_subsec1_card:nth-child(2) {
-  background-color: #5f73b6;
-}
-
-.robot_subsec1_card:nth-child(3) {
-  background-color: #39466e;
-}
-
-.robot_subsec1_card:nth-child(4) {
-  background-color: #20273e;
-
-}
-
-@media (max-width: 768px) {
-  .robot_subsec1 {
-    height: 280vh;
-  }
-
-  .robot_subsec1_card {
-    border-radius: 20px;
-  }
-
-  .robot_subsec1_card-holder h1 {
-    padding-left: 0rem;
-    text-align: center;
-  }
-
-  .robot_subsec1_card {
-    display: block;
-    padding: 1rem 1rem;
-  }
-
-  .robot_subsec1_heading {
-    justify-content: center;
-  }
-
-  .robot_subsec1_heading h1 {
-    text-align: center;
-    font-size: clamp(0.1rem, 3.5vw, 3.5rem);
-  }
-
-  .robot_subsec1_cardtxt {
-    text-align: center;
-  }
-
-  /* .subsec3_btn {    font-size: clamp(0.7rem, 1vw + 0.7rem, 1rem);
-    padding: 0.5rem 1rem 0.5rem; width: 50%; margin-top: 1rem;} */
-
-}
-
-/* --------------------------- Robot Page Section 2 rp2 ------------------- */
 #parent {
   display: flex;
   flex-direction: row;
@@ -1968,8 +1848,253 @@ video:hover {
 
   .robot_img {
     position: static;
-    width: 93vw;
+    width: 90vw;
     height: 50vh;
+  }
+}
+
+ /* --------------------------------- Robot Page Section 2 ------------------------------ */
+:root {
+  --bg-color: rgb(20, 20, 20);
+  --card-color: rgb(23, 23, 23);
+}
+
+.robot_sec2 {
+  align-items: center;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0px;
+  overflow: hidden;
+  padding: 10rem 0 10rem 0;
+  color: white;
+}
+
+/* ----------------- Header ----------------- */
+.robot_sec2_header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.robot_sec2_header h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 10px;
+}
+
+.robot_sec2_header p {
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  opacity: 0.8;
+}
+
+/* ----------------- Cards layout ----------------- */
+#robot_sec2_cards {
+  display: grid;
+  gap: 12px;  
+  width: 80vw; 
+  max-width: none;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: clamp(260px, 30vw, 350px);
+  grid-auto-flow: dense; 
+
+}
+
+/* Subtle collage effect */
+.robot_sec2_card:nth-child(4n) {
+  grid-column: span 2;
+}
+.robot_sec2_card:nth-child(2n) {
+  grid-column: span 2;
+}
+.robot_sec2_card:nth-child(6n) {
+  grid-column: span 1;
+}
+.robot_sec2_card:nth-child(7n) {
+  grid-column: span 2;
+}
+
+/* Hover radial effect */
+#robot_sec2_cards:hover > .robot_sec2_card::after {
+  opacity: 1;
+}
+
+.robot_sec2_card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.robot_sec2_card:hover::before {
+  opacity: 1;
+}
+
+.robot_sec2_card::before,
+.robot_sec2_card::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.robot_sec2_card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.robot_sec2_card::after {  
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.robot_sec2_card > .robot_sec2_card-content {
+  background-color: var(--card-color);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 1px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+/* ----------------- Card content ----------------- */
+
+
+.robot_sec2_card-image {
+  align-items: center;
+  display: flex;
+  height: clamp(140px, 15vw, 200px);
+  justify-content: center;
+  overflow: hidden;
+}
+
+.robot_sec2_card-image > i {
+  font-size: clamp(3em, 6vw, 6em);
+  opacity: 0.25;
+}
+
+.robot_sec2_card-info-wrapper {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  padding: 0px 20px;
+}
+
+.robot_sec2_card-info {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+}
+
+.robot_sec2_card-info > i {  
+  font-size: 1em;
+  height: 20px;
+  line-height: 20px;
+}
+
+.robot_sec2_card-info-title > h3 {
+  font-size: clamp(1em, 2.5vw, 1.2em);
+  line-height: 20px;
+}
+
+.robot_sec2_card-info-title > h4 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: clamp(0.8em, 2vw, 0.9em);
+  margin-top: 8px;
+}
+
+/* ----------------- Responsive ----------------- */
+@media(max-width: 1000px) {
+  .robot_sec2 {
+    align-items: flex-start;  
+    overflow: auto;
+  }
+  
+  #robot_sec2_cards {    
+    max-width: 1000px;
+    padding: 10px 0px;
+  }
+  
+  .robot_sec2_card {
+    flex-shrink: 1;
+    width: calc(50% - 4px);
+    grid-column: auto !important;
+  }
+}
+
+@media(max-width: 768px) {
+  #robot_sec2_cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .robot_sec2_card {
+    width: 90%;
+    grid-column: auto !important;
+  }
+
+  .robot_sec2 {
+    height: auto; 
+  }
+}
+
+@media(max-width: 500px) {
+  .robot_sec2_card {
+    height: 180px;
+  }
+  
+  .robot_sec2_card-image {
+    height: 80px;  
+  }
+  
+  .robot_sec2_card-image > i {
+    font-size: 3em;
+  }
+    
+  .robot_sec2_card-info-wrapper {
+    padding: 0px 10px;
+  }
+  
+  .robot_sec2_card-info > i { 
+    font-size: 0.8em; 
+  }
+  
+  .robot_sec2_card-info-title > h3 {
+    font-size: 0.9em;
+  }
+
+  .robot_sec2_card-info-title > h4 {
+    font-size: 0.8em;
+    margin-top: 4px;
+  }
+}
+
+@media(max-width: 320px) {
+  .robot_sec2_card {
+    width: 100%;
   }
 }
 

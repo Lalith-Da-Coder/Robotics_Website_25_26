@@ -8,6 +8,7 @@
   <!-- font-family: "Spartan", sans-serif; -->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="../assets/logo.jpg">
   <script type="module" src="../js/include.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
 </head>
@@ -48,12 +49,144 @@
             <img src="robot.png" alt="Robot Image">
         </div>
       </div>
-    <!-- <section class="Sec4">h</section> -->
+      
     </div>
 
+    <div class="robot_sec2">
+      <div class="robot_sec2_header">
+        <h2>Explore Our Features</h2>
+        <p>Discover the amazing capabilities of LUNA with our interactive cards below.</p>
+      </div>
+      <div id="robot_sec2_cards">
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-duotone fa-apartment"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-duotone fa-apartment"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Apartments</h3>  
+                  <h4>Places to be apart. Wait, what?</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-duotone fa-unicorn"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-duotone fa-unicorn"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Unicorns</h3>  
+                  <h4>A single corn. Er, I mean horn.</h4>
+                </div>    
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-duotone fa-blender-phone"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-duotone fa-blender-phone"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Blender Phones</h3>  
+                  <h4>These absolutely deserve to exist.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-duotone fa-person-to-portal"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-duotone fa-person-to-portal"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Adios</h3>  
+                  <h4>See you...</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-duotone fa-person-from-portal"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-duotone fa-person-from-portal"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>I mean hello</h3>  
+                  <h4>...over here.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-duotone fa-otter"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-duotone fa-otter"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Otters</h3>  
+                  <h4>Look at me, imma cute lil fella.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-duotone fa-otter"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-duotone fa-otter"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Otters</h3>  
+                  <h4>Look at me, imma cute lil fella.</h4>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          
+    </div>
 
   </main>
+<script>document.getElementById("robot_sec2_cards").onmousemove = e => {
+  for(const card of document.getElementsByClassName("robot_sec2_card")) {
+    const rect = card.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
 
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+}
+
+</script>
 <script>
   const parent = document.getElementById('parent');
   const feature1 = document.getElementById('feature1');
