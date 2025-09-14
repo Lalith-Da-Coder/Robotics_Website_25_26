@@ -1,105 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- font-family: "Spartan", sans-serif; -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="../assets/logo.jpg" />
+    <script type="module" src="../js/include.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <!-- font-family: "Spartan", sans-serif; -->
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="../assets/logo.jpg">
-  <script type="module" src="../js/include.js"></script>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
-</head>
+  <body id="top">
+    <audio
+      id="click-sound"
+      src="../assets/click_effect.mp3"
+      preload="auto"
+    ></audio>
+    <div id="loading-overlay">
+      <l-grid size="60" speed="1.5" color="white"></l-grid>
+      <p>Loading...</p>
+    </div>
+    <div id="NavBarSection" data-include="./template.html#TemplateNavBar"></div>
+    <main>
+      <div>
+        <section
+          id="HeroSection"
+          class="hero_sc"
+          data-include="./template.html#TemplateHero"
+        ></section>
+        <section style="position: sticky; top: 0">
+          <div class="Sec1">
+            <div class="subsec1">
+              <div class="subsec1_img">
+                <!-- invisible hover zones INSIDE -->
+                <div class="top-left"></div>
+                <div class="top-right"></div>
+                <div class="bottom-left"></div>
+                <div class="bottom-right"></div>
 
-<body id="top">
-  <audio id="click-sound" src="../assets/click_effect.mp3" preload="auto"></audio>
-  <div id="loading-overlay">
-    <l-grid size="60" speed="1.5" color="white"></l-grid>
-    <p>Loading...</p>
-  </div>
-  <div id="NavBarSection" data-include="./template.html#TemplateNavBar"></div>
-  <main>
-    <div>
-      <section id="HeroSection" class="hero_sc" data-include="./template.html#TemplateHero"></section>
-      <section style="  position: sticky;top: 0;">
-        <div class="Sec1 ">
-          <div class="subsec1">
-            <div class="subsec1_img">
-              <!-- invisible hover zones INSIDE -->
-              <div class="top-left"></div>
-              <div class="top-right"></div>
-              <div class="bottom-left"></div>
-              <div class="bottom-right"></div>
-          
-              <img src="../assets/logo.jpg" alt="Meet the Team">
-            </div>
-          
-            <div class="subsec1_txt scroll-reveal">
-              <p><span>We are a passionate robotics team that designs, builds,
-                and programs innovative robots. Through teamwork,
-                creativity, and hands-on learning, we tackle challenges,
-                compete in events, and explore the latest in robotics
-                technology.</span></p>
-          
-              <button>
-                <a href="about.html" class="meetTeam">Meet The Team ➜</a>
-              </button>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-      <section style="  position: sticky;top: 0;">
-        <div class="Sec2 autoshow2 ">
-          <div class="subsec2">
-            <div class="subsec2_title ">
-              <h1 class="subsec2_title_h1 ">Crafted with precision.<br>Tested for excellence.</h1>
-
-            </div>
-            <div class="carousel">
-              <div class="group">
-                <div class="card">
-                  A
-                  <div class="card-text">This is A’s text box</div>
-                </div>
-                <div class="card">
-                  B
-                  <div class="card-text">This is B’s text box</div>
-                </div>
-                <div class="card">
-                  C
-                  <div class="card-text">This is C’s text box</div>
-                </div>
+                <img src="../assets/logo.jpg" alt="Meet the Team" />
               </div>
-              <div class="group" aria-hidden="true">
-                <div class="card">
-                  A
-                  <div class="card-text">This is A’s text box</div>
-                </div>
-                <div class="card">
-                  B
-                  <div class="card-text">This is B’s text box</div>
-                </div>
-                <div class="card">
-                  C
-                  <div class="card-text">This is C’s text box</div>
-                </div>
+
+              <div class="subsec1_txt scroll-reveal">
+                <p>
+                  <span
+                    >We are a passionate robotics team that designs, builds, and
+                    programs innovative robots. Through teamwork, creativity,
+                    and hands-on learning, we tackle challenges, compete in
+                    events, and explore the latest in robotics technology.</span
+                  >
+                </p>
+
+                <button>
+                  <a href="about.html" class="meetTeam">Meet The Team ➜</a>
+                </button>
               </div>
             </div>
-
-
           </div>
-        </div>
-      </section>
+        </section>
+        <section style="position: sticky; top: 0">
+          <div class="Sec2 autoshow2">
+            <div class="subsec2">
+              <div class="subsec2_title">
+                <h1 class="subsec2_title_h1">
+                  Crafted with precision.<br />Tested for excellence.
+                </h1>
+              </div>
+              <div class="carousel">
+                <div class="group">
+                  <div class="card">
+                    A
+                    <div class="card-text">This is A’s text box</div>
+                  </div>
+                  <div class="card">
+                    B
+                    <div class="card-text">This is B’s text box</div>
+                  </div>
+                  <div class="card">
+                    C
+                    <div class="card-text">This is C’s text box</div>
+                  </div>
+                </div>
+                <div class="group" aria-hidden="true">
+                  <div class="card">
+                    A
+                    <div class="card-text">This is A’s text box</div>
+                  </div>
+                  <div class="card">
+                    B
+                    <div class="card-text">This is B’s text box</div>
+                  </div>
+                  <div class="card">
+                    C
+                    <div class="card-text">This is C’s text box</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-
-        <div class="Sec3" style="  position: sticky;top: 0;">
+        <div class="Sec3" style="position: sticky; top: 0">
           <div class="subsec3">
             <div class="subsec3_heading">
-              <h1>The Challenge That Drives Us, <br> Introducing BEST Robotics.</h1>
-              <button class="subsec3_btn" onclick='window.open("https://www.bestrobotics.org", "_blank")'>
+              <h1>
+                The Challenge That Drives Us, <br />
+                Introducing BEST Robotics.
+              </h1>
+              <button
+                class="subsec3_btn"
+                onclick='window.open("https://www.bestrobotics.org", "_blank")'
+              >
                 <p>Learn More ➜</p>
               </button>
             </div>
@@ -113,11 +129,11 @@
                   <div>
                     <h1>Hands-On STEM Learning</h1>
                   </div>
-                  <p>BEST Robotics immerses middle and
-                    high school students in real-world
-                    engineering by challenging them to
-                    design, build, and program robots to
-                    improve problem-solving skills.</p>
+                  <p>
+                    BEST Robotics immerses middle and high school students in
+                    real-world engineering by challenging them to design, build,
+                    and program robots to improve problem-solving skills.
+                  </p>
                 </div>
               </div>
               <div class="subsec3_card">
@@ -128,11 +144,11 @@
                   <div>
                     <h1>Teamwork and Collaboration</h1>
                   </div>
-                  <p>Students work in teams to tackle
-                    engineering challenges, mirroring
-                    real-world projects and emphasizing
-                    the importance of communication
-                    and cooperation.</p>
+                  <p>
+                    Students work in teams to tackle engineering challenges,
+                    mirroring real-world projects and emphasizing the importance
+                    of communication and cooperation.
+                  </p>
                 </div>
               </div>
               <div class="subsec3_card">
@@ -143,11 +159,11 @@
                   <div>
                     <h1>Comprehensive Evaluation</h1>
                   </div>
-                  <p>Teams are assessed on their robot's
-                    performance, engineering notebook,
-                    marketing presentation, and overall
-                    team spirit, promoting a well-rounded
-                    skill set.</p>
+                  <p>
+                    Teams are assessed on their robot's performance, engineering
+                    notebook, marketing presentation, and overall team spirit,
+                    promoting a well-rounded skill set.
+                  </p>
                 </div>
               </div>
               <div class="subsec3_card">
@@ -158,80 +174,93 @@
                   <div>
                     <h1>Nationwide Participation</h1>
                   </div>
-                  <p>Since 1993, BEST Robotics has
-                    engaged over 1,000 teams across
-                    the United States, demonstrating
-                    its extensive reach and impact in
-                    STEM education.</p>
+                  <p>
+                    Since 1993, BEST Robotics has engaged over 1,000 teams
+                    across the United States, demonstrating its extensive reach
+                    and impact in STEM education.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
-    <!-- <section class="Sec4">h</section> -->
-    </div>
-    <div class="Sec4">
-      <div class="testimonial">
-        <div class="testimonial_txt">
-          <p>HEAR FROM THE LOCAL COMMUNITY</p>
-          <div class="scroll-reveal2">
-            <h1>
-              <span>"Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-              </span>
-            </h1>
+        <!-- <section class="Sec4">h</section> -->
+      </div>
+      <div class="Sec4">
+        <div class="testimonial">
+          <div class="testimonial_txt">
+            <p>HEAR FROM THE LOCAL COMMUNITY</p>
+            <div class="scroll-reveal2">
+              <h1>
+                <span
+                  >"Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum"
+                </span>
+              </h1>
+            </div>
+          </div>
+          <div class="testimonial_id">
+            <img src="" alt="person_img" />
+            <h1>Name<br />Occupation</h1>
+          </div>
+          <div class="testimonial_audio_container">
+            <img
+              src="../assets/logo.jpg"
+              alt="Click to play/pause audio"
+              id="audioToggleImage"
+              class="audio-image-toggle"
+            />
+            <audio controls id="testimonial_audio">
+              <source src="../assets/click_effect.mp3" type="audio/mpeg" />
+              Your browswer does not support the audio element
+            </audio>
           </div>
         </div>
-        <div class="testimonial_id">
-          <img src="" alt="person_img">
-          <h1>Name<br>Occupation</h1>
-        </div>
       </div>
-    </div>
+    </main>
+    <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
 
+    <script>
+      const clickSound = document.getElementById("click-sound");
 
-  </main>
-  <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
-  
-  <script>
-    const clickSound = document.getElementById('click-sound');
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", function (event) {
+          if (
+            event.button === 0 &&
+            !event.metaKey &&
+            !event.ctrlKey &&
+            !event.shiftKey &&
+            !event.altKey
+          ) {
+            event.preventDefault();
+            clickSound.currentTime = 0;
+            clickSound.play().catch(() => {});
 
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function (event) {
-        if (
-          event.button === 0 &&
-          !event.metaKey &&
-          !event.ctrlKey &&
-          !event.shiftKey &&
-          !event.altKey
-        ) {
-          event.preventDefault();
-          clickSound.currentTime = 0;
-          clickSound.play().catch(() => {
-          });
-
-          setTimeout(() => {
-            if (link.hash && link.pathname === window.location.pathname) {
-              const target = document.getElementById(link.hash.slice(1));
-              if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-                return;
+            setTimeout(() => {
+              if (link.hash && link.pathname === window.location.pathname) {
+                const target = document.getElementById(link.hash.slice(1));
+                if (target) {
+                  target.scrollIntoView({ behavior: "smooth" });
+                  return;
+                }
               }
-            }
-            window.location.href = link.href;
-          }, 120);
-        }
+              window.location.href = link.href;
+            }, 120);
+          }
+        });
       });
-    });
-    document.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', function (event) {
-        clickSound.currentTime = 0;
-        clickSound.play().catch(() => {})
+      document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", function (event) {
+          clickSound.currentTime = 0;
+          clickSound.play().catch(() => {});
+        });
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        const audio = document.getElementById('testimonial_audio')
+        const toggleImage = document.getElementById('audioToggleImage')
+        const playPauseOverlay = document.querySelector('.play-pause-over')
       })
-    })
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
