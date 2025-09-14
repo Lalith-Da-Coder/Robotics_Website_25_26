@@ -36,25 +36,6 @@
           <div class="contact_sec1_item1_a">
             <div class="heading">
               <div>
-                <h1 class="slide-up">GET IN TOUCH</h1>
-              </div>
-            </div>
-            <div class="paragraph">
-              <div>
-                <p class="slide-up">
-                  We’d love to hear from you! At
-                  the moment, the best way to get
-                  in touch is by meeting with us in
-                  person. We enjoy connecting face-to-face
-                  and look forward to seeing you soon.
-                </p>
-              </div>
-            </div>
-
-          </div>
-          <div class="contact_sec1_item1_b">
-            <div class="heading">
-              <div>
                 <h1 class="slide-up">Location</h1>
               </div>
             </div>
@@ -74,12 +55,62 @@
       </div>
       </section>
       
-      <div class="contact_sec2">
-        
-      </div>
     </div>
+    <section class="contact_sec2">
+      <div class="contact_sec2_item1">
+          <div class="heading">
+            <div>
+              <h1 class="slide-up">GET IN TOUCH</h1>
+            </div>
+          </div>
+          <div class="paragraph">
+            <div>
+              <p class="slide-up">
+                We’d love to hear from you! At
+                the moment, the best way to get
+                in touch is by meeting with us in
+                person. We enjoy connecting face-to-face
+                and look forward to seeing you soon.
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <form action="" class="contact_sec2_item2" id="contactform">
+          <input placeholder="Name" type="text">
+          <input placeholder="Email" type="email">
+          <input placeholder="Phone Number" type="tel">
+          <input  type="datetime-local">
+          <input type="submit" >
+        </form>
+        <div class="submit-popup" id="submitpopup">
+          <div class="popup-content">
+            <span class="popup-icon"></span>
+            <p>Your response was submitted and recorded and we will reach out to you soon!</p>
+          </div>
+        </div>
+    </section>
 
   </main>
   <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactform');
+    const successPopup = document.getElementById('submitpopup')
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(event) {
+        event.preventDefault()
+        successPopup.classList.add('show')
+
+        setTimeout(function() {
+          successPopup.classList.remove('show')
+        }, 2000)
+
+        contactForm.reset();
+      })
+    }
+  })
+</script>
 </html>

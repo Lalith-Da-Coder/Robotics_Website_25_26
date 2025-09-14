@@ -13,7 +13,7 @@
 </head>
 
 <body id="top">
-  <audio id="click-sound" src="click_effect.mp3" preload="auto"></audio>
+  <audio id="click-sound" src="../assets/click_effect.mp3" preload="auto"></audio>
   <div id="loading-overlay">
     <l-grid size="60" speed="1.5" color="white"></l-grid>
     <p>Loading...</p>
@@ -86,8 +86,11 @@
           <div class="subsec3">
             <div class="subsec3_heading">
               <h1>The Challenge That Drives Us, <br> Introducing BEST Robotics.</h1>
-              <button class="subsec3_btn"> <a href="https://www.bestrobotics.org">Learn More ➜</a></button>
+              <button class="subsec3_btn" onclick='window.open("https://www.bestrobotics.org", "_blank")'>
+                <p>Learn More ➜</p>
+              </button>
             </div>
+            <!-- <p style="padding-bottom: 1rem"></p> -->
             <div class="subsec3_card-holder">
               <div class="subsec3_card">
                 <div class="subsec3_cardnum">
@@ -185,7 +188,7 @@
     const clickSound = document.getElementById('click-sound');
 
     document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function(event) {
+      link.addEventListener('click', function (event) {
         if (
           event.button === 0 &&
           !event.metaKey &&
@@ -211,6 +214,12 @@
         }
       });
     });
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function (event) {
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {})
+      })
+    })
   </script>
 </body>
 

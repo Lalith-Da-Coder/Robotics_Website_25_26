@@ -101,12 +101,12 @@ nav ul li:hover {
 
   nav a::before{
     transform-origin: 50% 50%;
-    background: #000000;
+    background: white;
   }
 
   nav ul li a:hover {
     /* Default text style */
-    color: black;
+    color: white;
     transition: all 0.3s ease-in-out; 
   }
 

@@ -50,7 +50,7 @@ function enhanceAfterInclude() {
     const here = location.pathname.replace(/\/index\.html$/, '/')
     document.querySelectorAll("#NavBarSection a[href]").forEach(a => {
         const path = new URL(a.getAttribute('href'), location.origin).pathname.replace(/\/index\.html$/, '/')
-        if (path === here) a.setAttribute('aria-current', 'page')
+        if (`/pages${path}` === here) a.setAttribute('aria-current', 'page')
     })
 
     const container = document.getElementById('NavBarSection')
