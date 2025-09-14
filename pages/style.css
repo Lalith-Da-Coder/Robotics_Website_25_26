@@ -1446,7 +1446,7 @@ hr {
   background-color: #5a536f;
 }
 /* Success Popup Styles */
-.submit-popup {
+.success-popup {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -1463,9 +1463,49 @@ hr {
   overflow: hidden;
 }
 
-.submit-popup.show {
+.success-popup.show {
   opacity: 1;
   transform: translateX(0) scale(1);
+}
+
+.error-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(220, 53, 69, 0.3);
+  opacity: 0;
+  transform: translateX(100%) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 10000;
+  max-width: 350px;
+  overflow: hidden;
+}
+
+.error-popup.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.contact_sec2 input:not([type="submit"]):focus {
+  outline: none;
+  border-color: #645d7f;
+  box-shadow: 0 0 0 3px rgba(100, 93, 127, 0.1);
+}
+
+.contact_sec2 input.error {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.contact_sec2 input.success {
+  border-color: #28a745;
+  background-color: #f8fff8;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
 }
 
 .popup-content {
@@ -1497,6 +1537,41 @@ hr {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+  .contact_sec2 { 
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  
+  .contact_sec2_item1 {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+
+  .contact_sec2_item1 p {
+    width: 100%;
+  }
+
+  .contact_sec2_item2 {
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .contact_sec2 input:not([type="submit"]) {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .error-popup {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+
   .success-popup {
     top: 10px;
     right: 10px;
@@ -1511,6 +1586,17 @@ hr {
   .popup-content p {
     font-size: 14px;
   }
+}
+
+.conatct_sec2 input::placeholder {
+  color: #999;
+  opacity: 0.8;
+}
+
+.contact_sec2 input[type="submit"]:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* ----------------------------- Contact Page Section 3 cp3 ----------------------- */

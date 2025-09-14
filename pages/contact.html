@@ -29,7 +29,7 @@
     <div>
       <section>
         <div class="hero_sec">
-            <h1>Lets Connect</h1>
+          <h1>Lets Connect</h1>
         </div>
       </section>
       <section class="contact_sec1" style="  position: sticky;top: 0;">
@@ -47,71 +47,240 @@
             </div>
           </div>
 
-      </div>
-      <div class="contact_sec1_item2">
-        <iframe class="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.3774404791134!2d-97.85335612344609!3d30.538638494985445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b2970394b9265%3A0x61bff11e1e554717!2sLeander%20High%20School!5e0!3m2!1sen!2sus!4v1757299925064!5m2!1sen!2sus"
-          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+        </div>
+        <div class="contact_sec1_item2">
+          <iframe class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.3774404791134!2d-97.85335612344609!3d30.538638494985445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b2970394b9265%3A0x61bff11e1e554717!2sLeander%20High%20School!5e0!3m2!1sen!2sus!4v1757299925064!5m2!1sen!2sus"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </section>
-      
+
     </div>
     <section class="contact_sec2">
       <div class="contact_sec2_item1">
-          <div class="heading">
-            <div>
-              <h1 class="slide-up">GET IN TOUCH</h1>
-            </div>
+        <div class="heading">
+          <div>
+            <h1 class="slide-up">GET IN TOUCH</h1>
           </div>
-          <div class="paragraph">
-            <div>
-              <p class="slide-up">
-                We’d love to hear from you! At
-                the moment, the best way to get
-                in touch is by meeting with us in
-                person. We enjoy connecting face-to-face
-                and look forward to seeing you soon.
-              </p>
-            </div>
+        </div>
+        <div class="paragraph">
+          <div>
+            <p class="slide-up">
+              We’d love to hear from you! At
+              the moment, the best way to get
+              in touch is by meeting with us in
+              person. We enjoy connecting face-to-face
+              and look forward to seeing you soon.
+            </p>
           </div>
+        </div>
 
+      </div>
+      <form action="" class="contact_sec2_item2" id="contactform">
+        <input placeholder="Name" type="text">
+        <input placeholder="Email" type="email">
+        <input placeholder="Phone Number" type="tel">
+        <input type="datetime-local">
+        <input type="submit">
+      </form>
+      <div class="success-popup" id="successPopup">
+        <div class="popup-content">
+          <span class="popup-icon">✓</span>
+          <p>Your response was submitted and recorded and we will reach out to you soon!</p>
         </div>
-        <form action="" class="contact_sec2_item2" id="contactform">
-          <input placeholder="Name" type="text">
-          <input placeholder="Email" type="email">
-          <input placeholder="Phone Number" type="tel">
-          <input  type="datetime-local">
-          <input type="submit" >
-        </form>
-        <div class="submit-popup" id="submitpopup">
-          <div class="popup-content">
-            <span class="popup-icon"></span>
-            <p>Your response was submitted and recorded and we will reach out to you soon!</p>
-          </div>
+      </div>
+      <div class="error-popup" id="errorPopup">
+        <div class="popup-content">
+          <span class="popup-icon">⚠</span>
+          <p id="errorMessage">Please fill out all required fields correctly.</p>
         </div>
+      </div>
     </section>
 
   </main>
   <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
 </body>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactform');
-    const successPopup = document.getElementById('submitpopup')
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactform');
+    const successPopup = document.getElementById('successPopup');
+    const errorPopup = document.getElementById('errorPopup');
+    const errorMessage = document.getElementById('errorMessage');
 
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(event) {
-        event.preventDefault()
-        successPopup.classList.add('show')
+    const inputs = form.querySelectorAll('input:not([type="submit"])');
+    const nameInput = inputs[0];
+    const emailInput = inputs[1];
+    const phoneInput = inputs[2];
+    const datetimeInput = inputs[3];
 
-        setTimeout(function() {
-          successPopup.classList.remove('show')
-        }, 2000)
 
-        contactForm.reset();
-      })
+    function validateName(name) {
+      const trimmed = name.trim();
+      return trimmed.length >= 2 && /^[a-zA-Z\s'-]+$/.test(trimmed);
     }
-  })
+
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email.trim());
+    }
+
+    function validatePhone(phone) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+      const cleanPhone = phone.replace(/[\s\-\(\)\.]/g, '');
+      return cleanPhone.length >= 10 && phoneRegex.test(cleanPhone);
+    }
+
+    function validateDateTime(datetime) {
+      if (!datetime) return false;
+      const selectedDate = new Date(datetime);
+      const now = new Date();
+      now.setMinutes(now.getMinutes() + 30);
+      return selectedDate > now;
+    }
+
+
+    function setFieldState(input, isValid) {
+      input.classList.remove('error', 'success');
+      if (isValid === true) {
+        input.classList.add('success');
+      } else if (isValid === false) {
+        input.classList.add('error');
+      }
+    }
+
+
+    nameInput.addEventListener('blur', () => {
+      if (nameInput.value.trim()) {
+        setFieldState(nameInput, validateName(nameInput.value));
+      }
+    });
+
+    emailInput.addEventListener('blur', () => {
+      if (emailInput.value.trim()) {
+        setFieldState(emailInput, validateEmail(emailInput.value));
+      }
+    });
+
+    phoneInput.addEventListener('blur', () => {
+      if (phoneInput.value.trim()) {
+        setFieldState(phoneInput, validatePhone(phoneInput.value));
+      }
+    });
+
+    datetimeInput.addEventListener('blur', () => {
+      if (datetimeInput.value) {
+        setFieldState(datetimeInput, validateDateTime(datetimeInput.value));
+      }
+    });
+
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        input.classList.remove('error', 'success');
+      });
+    });
+
+
+    function showPopup(popup, message = null) {
+      hideAllPopups();
+
+      if (message && popup === errorPopup && errorMessage) {
+        errorMessage.textContent = message;
+      }
+
+      popup.classList.add('show');
+
+
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 2000);
+    }
+
+    function hideAllPopups() {
+      successPopup.classList.remove('show');
+      if (errorPopup) errorPopup.classList.remove('show');
+    }
+
+
+    if (form) {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const datetime = datetimeInput.value;
+
+
+        const validations = {
+          name: validateName(name),
+          email: validateEmail(email),
+          phone: validatePhone(phone),
+          datetime: validateDateTime(datetime)
+        };
+
+
+        setFieldState(nameInput, validations.name);
+        setFieldState(emailInput, validations.email);
+        setFieldState(phoneInput, validations.phone);
+        setFieldState(datetimeInput, validations.datetime);
+
+        const errors = [];
+
+        if (!name) {
+          errors.push('Name is required');
+        } else if (!validations.name) {
+          errors.push('Please enter a valid name');
+        }
+
+        if (!email) {
+          errors.push('Email is required');
+        } else if (!validations.email) {
+          errors.push('Please enter a valid email address');
+        }
+
+        if (!phone) {
+          errors.push('Phone number is required');
+        } else if (!validations.phone) {
+          errors.push('Please enter a valid phone number');
+        }
+
+        if (!datetime) {
+          errors.push('Please select a preferred meeting time');
+        } else if (!validations.datetime) {
+          errors.push('Please select a future date and time');
+        }
+
+        if (errors.length > 0) {
+          if (errorPopup && errorMessage) {
+            showPopup(errorPopup, errors[0]);
+          }
+
+          const firstInvalid = form.querySelector('input.error');
+          if (firstInvalid) {
+            firstInvalid.focus();
+          }
+        } else {
+          showPopup(successPopup);
+
+          form.reset();
+          inputs.forEach(input => {
+            input.classList.remove('error', 'success');
+          });
+        }
+      });
+    }
+
+    // Click outside to close popups
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.success-popup, .error-popup')) {
+        hideAllPopups();
+      }
+    });
+  });
 </script>
+
+
 </html>
