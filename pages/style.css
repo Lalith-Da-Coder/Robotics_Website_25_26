@@ -1,5 +1,4 @@
 body {
-  font-family: Arial, sans-serif;
   color: black;
   margin: 0;
   padding: 0;
@@ -7,11 +6,26 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   background-color: #15141b;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 100;
-  
+}
+
+@font-face {
+  font-family: 'HeadingFont';
+  src: url('../assets/FiraSansExtraCondensed-ExtraBold.ttf') format('truetype');
 
 }
+
+@font-face {
+  font-family: 'ParagraphFont';
+  src: url('../assets/FunnelRegular.ttf') format('truetype');
+
+
+}
+@font-face {
+  font-family: 'SourceCode';
+  src: url('../assets/SourceCodePro-Regular.ttf') format('truetype');
+
+}
+
 
 body:not(.loaded) main,
 body:not(.loaded) #NavBarSection,
@@ -115,16 +129,15 @@ html {
 
 
 /* sets the font  below for every "h" font size  */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 2.5px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'HeadingFont', serif;
+
 }
 
+p, li, a{
+  font-family: 'ParagraphFont', sans-serif;
+
+}
 
 
 
@@ -235,31 +248,55 @@ nav ul li a:hover {
 .hero_sec {
   background-color: #000000;
   color: rgb(0, 0, 0);
-  height: 100vh;
+  height: 85vh;
   z-index: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 4rem;
+  padding: 2rem;
+  position: relative; /* allows children to layer */
 }
 
 .hero_sec h1 {
-  font-size: clamp(1rem, 11vw, 50rem);
-  padding-bottom: 3rem;
-  transform: scaleY(2);
-  display: inline-block;
+  font-size: clamp(1rem, 11vw, 70rem);
   margin: 0;
-  position: sticky;
-  top: 100px;
-  text-shadow: -1px -1px 0 #645d7f, 1px -1px 0 #645d7f, -1px 1px 0 #645d7f, 1px 1px 0 #645d7f;
-  /* animation: autoshowText 1s both; */
+  text-shadow: -1px -1px 0 #645d7f,
+               1px -1px 0 #645d7f,
+               -1px 1px 0 #645d7f,
+               1px 1px 0 #645d7f;
+  flex: 1;  position: relative;
+  z-index: 2; /* keep text above lottie */
+  text-align: left;
+}
+
+.responsive-lottie {
+  width: clamp(50rem, 40vw, 60rem);
+  height: clamp(60rem, 46vw, 70rem);
+  position: absolute; /* pulls it out of normal flow */
+  top: 0; /* sit just below header */
+  right: 2rem;
+  z-index: 1; /* below header/nav but above background */
+  pointer-events: none; /* ensures navbar stays clickable */
 }
 
 @media (max-width: 768px) {
+  .hero_sec {
+    flex-direction: column;
+  }
+
   .hero_sec h1 {
-    opacity: 1;
-    text-shadow: -0.5px -0.5px 0 #645d7f, 0.5px -0.5px 0 #645d7f, -0.5px 0.5px 0 #645d7f, 0.5px 0.5px 0 #645d7f;
+    font-size: clamp(2rem, 12vw, 6rem);
+    text-shadow: -0.5px -0.5px 0 #645d7f,
+                 0.5px -0.5px 0 #645d7f,
+                 -0.5px 0.5px 0 #645d7f,
+                 0.5px 0.5px 0 #645d7f;
+    z-index: 2;
+  }
+
+  .responsive-lottie {
+    position: static; /* stacks naturally under text on mobile */
+    width: clamp(8rem, 60vw, 25rem);
+    margin-top: 1rem;
   }
 }
 
@@ -400,7 +437,8 @@ nav ul li a:hover {
 }
 
 .meetTeam {
-  font-weight: 700;
+  font-family: 'ParagraphFont', monospace;
+  font-weight: 900;
   text-decoration: none;
   color: white;
   padding: 0.5rem 1rem;
@@ -444,7 +482,10 @@ button:active {
 
 .Sec2 {
   background-color: #504a65;
-  height: 120vh;
+  height: 100vh; /* Ensures full viewport height */
+  padding: 0; /* Removes extra padding */
+  margin: 0; /* Ensures no overlap due to margins */
+  box-sizing: border-box;
 }
 
 
@@ -455,18 +496,17 @@ button:active {
 }
 
 .subsec2_title_h1 {
-  padding-top: 6.5rem;
-  font-size: clamp(0.4rem, 5vw, 4rem);
+  padding-top: 4rem;
+  font-size: clamp(0.4rem, 5.5vw, 20rem);
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  transform: scaleY(1.4);
-  margin-bottom: 9rem;
+  margin-bottom: 5rem;
   paint-order: stroke fill;
 }
 
 .subsec2_title_span {
-  font-size: clamp(0.2rem, 5vw, 3.25rem);
+  font-size: clamp(0.2rem, 5.5vw, 3.25rem);
 }
 
 .carousel .group {
@@ -606,6 +646,8 @@ button:active {
   display: flex;
   justify-content: center;
   background-color: #3c384c;
+  padding-top: clamp(5rem, 5vw, 10rem);
+  padding-bottom: clamp(5rem, 5vw, 10rem);
 }
 
 .subsec3 {
@@ -628,12 +670,12 @@ button:active {
 
 
 .subsec3_heading h1 {
-  font-size: clamp(0.4rem, 5vw, 4rem);
+  font-size: clamp(0.4rem, 5.5vw, 20rem);
   font-weight: 600;
   text-align: center;
-  transform: scaleY(1.4);
   text-align: center;
   position: sticky;
+
 }
 
 
@@ -643,13 +685,15 @@ button:active {
   color: white;
   padding: 0;
   border-radius: 60px;
-  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
-  padding: clamp(1rem, 2vw, 1.8rem);
+  font-size: clamp(1rem, 2vw + 0.5rem, 5rem);
+  padding: clamp(1rem, 2vw, 1.3rem);
   margin-top: clamp(1rem, 5vw, 2rem);
 }
 
 
 .subsec3_btn p {
+  font-family: 'ParagraphFont', monospace;
+  font-weight: 900;
   text-decoration: none;
   color: white;
   margin: 0; /* Remove default paragraph margins */
@@ -816,6 +860,7 @@ button:active {
 }
 
 .testimonial_txt h1 {
+  font-family: 'ParagraphFont', monospace;
   font-size: clamp(1.2rem, 4vw, 2.5rem);
   font-weight: 600;
   padding: 1rem 0;
@@ -925,6 +970,9 @@ audio {
   .audio-player-container {
     max-width: 300px;
     padding: 1rem;
+  }
+  .testimonial_txt {
+    flex-direction: column;
   }
 }
 
@@ -1079,8 +1127,10 @@ hr {
 }
 
 .footer_links h1 {
-  font-size: clamp(0.6rem, 1vw, 1.25rem);
+  font-size: clamp(0.6rem, 1vw, 1.15rem);
   text-transform: uppercase;
+  font-family: 'SourceCode';
+  letter-spacing: 2px;
 }
 
 .footer_links ul li a {
@@ -1121,21 +1171,19 @@ hr {
 
 
 .footer_heading h1 {
-  font-size: clamp(0.1rem, 12vw, 15rem);
-  margin: 0 0 1rem 0;
+  font-size: clamp(0.1rem, 16vw, 50rem);
+  margin: 0 0 0.1rem 0;
   line-height: 1;
   white-space: nowrap;
-  transform: scaleY(1.2);
 }
 
 
 
 .footer_btmrow {
   display: flex;
-  gap: 0.5rem;
   font-size: 1rem;
   justify-content: space-between;
-  width: 91%;
+  width: 87%;
 }
 
 .footer_btmrow ul {
@@ -1150,6 +1198,7 @@ hr {
 .footer_btmrow h1 {
   font-size: clamp(0.4rem, 1vw, 1rem);
   cursor: pointer;
+  font-family: 'SourceCode', monospace;
 }
 
 .footer_heading span {
@@ -1241,7 +1290,7 @@ hr {
 .footer_social a::before {
   content: "";
   position: absolute;
-  width: 118px;
+  width: 86x;
   height: 1px;
   top: 33px;
   left: 0px;
@@ -1325,7 +1374,6 @@ hr {
   background-color: #000000;
   color: rgb(0, 0, 0);
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1335,8 +1383,7 @@ hr {
 }
 
 .hero_sec_contact h1 {
-  font-size: clamp(1rem, 11vw, 70rem);
-  transform: scaleY(2);
+  font-size: clamp(4rem, 11vw, 70rem);
   text-shadow: -1px -1px 0 #645d7f, 1px -1px 0 #645d7f, -1px 1px 0 #645d7f, 1px 1px 0 #645d7f;
 
 }
@@ -1672,6 +1719,7 @@ hr {
 
 
 /* ------------ About Page Hero Section----------------- */
+
 .hero_sec_about {
   background-color: #000000;
   color: rgb(0, 0, 0);
@@ -1687,8 +1735,7 @@ hr {
 }
 
 .hero_sec_about h1 {
-  font-size: clamp(0.1rem, 11vw, 9rem);
-  transform: scaleY(2);
+  font-size: clamp(0.1rem, 11vw, 15rem);
   display: inline-block;
   margin: 0;
   position: sticky;
@@ -1819,7 +1866,6 @@ hr {
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  transform: scaleY(1.4);
   padding-top: clamp(1rem, 8vw, 4rem);
   padding-bottom: clamp(1rem, 8vw, 4rem);
 }
@@ -1868,7 +1914,6 @@ video:hover {
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  transform: scaleY(1.4);
   margin-bottom: 1rem;
 }
 
@@ -2042,13 +2087,17 @@ video:hover {
 
 /* ----------------- Cards layout ----------------- */
 #robot_sec2_cards {
-  display: grid;
-  gap: 12px;  
-  width: 80vw; 
-  max-width: none;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  grid-auto-rows: clamp(260px, 30vw, 350px);
-  grid-auto-flow: dense; 
+    display: grid;
+    gap: 16px;
+    width: 95vw;
+    max-width: 1200px;
+  
+    /* Fixed 4 columns everywhere */
+    grid-template-columns: repeat(5, 1fr);
+  
+    grid-auto-rows: clamp(260px, 30vw, 350px);
+    grid-auto-flow: dense;
+  
 
 }
 

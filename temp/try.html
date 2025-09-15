@@ -1,152 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robot Example</title>
-<style>
-    body {
-        margin: 0;
-        font-family: sans-serif;
-    }
-
-    #parent {
-        display: flex;               
-        flex-direction: row;         
-        align-items: flex-start; 
-        justify-content: center;    
-        gap: 20px;                   
-        padding: 20px;
-        height: 300vh; /* Tall enough to scroll */
-        position: relative;
-    }
-
-    .robot_img {
-        position: sticky;            
-        top: 5rem;                   
-        height: 82vh;
-        width: 50vw;
-        border: 1px solid black;
-    }
-
-    .robot_img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .robot_desc {
-        position: sticky;           
-        top: 5rem;
-        width: 35vw;                 
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* vertical centering */
-        align-items: left;     /* horizontal centering */
-        padding: 10px;
-        height: 80vh;
-    }
-
-    .robot_desc ul {
-        padding-left: 0;
-        list-style: none;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly; /* even spacing vertically */
-        height: 100%;
-    }
-
-    .robot_desc li {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.6s ease-out;
-    }
-
-    .robot_desc h1 {font-size: clamp(1rem, 5vw, 2.5rem);}
-    .robot_desc p {font-size: clamp(0.1rem, 3vw, 1.5rem);}
-    .robot_desc li.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* Responsive for mobile screens */
-    @media (max-width: 768px) {
-        #parent {
-            height: 95vh;
-            flex-direction: column; /* stack divs vertically */
-            flex-direction: column-reverse;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Lottie Animation</title>
+    <style>
+        .responsive-lottie {
+            width: clamp(10rem, 50vw, 100rem);
+            height: clamp(10rem,50vw, 100rem);
+            display: block;
+            margin: 0 auto;
         }
-        .robot_desc {
-            position: static;
-            width: 90vw;
-            overflow: hidden; /* hide overflowing content */
-            height: auto; /* allow it to shrink naturally */
-        }
-        .robot_img {
-            position: static;
-            width: 93vw;
-            height: 50vh;
-        }
-    }
-</style>
+    </style>
 </head>
 <body>
-
-<div style="height: 100vh"><h1>hi</h1></div>
-
-<div id="parent">
-    <div class="robot_desc">
-        <ul>
-            <li id="feature1">
-                <h1>Feature 1</h1>
-                <p>This describes the first feature of the robot.</p>
-            </li>
-            <li id="feature2">
-                <h1>Feature 2</h1>
-                <p>This describes the second feature of the robot.</p>
-            </li>
-            <li id="feature3">
-                <h1>Feature 3</h1>
-                <p>This describes the third feature of the robot.</p>
-            </li>
-        </ul>
-    </div>
-    <div class="robot_img">
-        <img src="robot.png" alt="Robot Image">
-    </div>
-</div>
-<script>
-  const parent = document.getElementById('parent');
-  const feature1 = document.getElementById('feature1');
-  const feature2 = document.getElementById('feature2');
-  const feature3 = document.getElementById('feature3');
-
-  function handleScroll() {
-      if (window.innerWidth <= 768) {
-          feature1.classList.add('visible');
-          feature2.classList.add('visible');
-          feature3.classList.add('visible');
-          return;
-      }
-
-      const parentTop = parent.offsetTop;
-      const parentHeight = parent.offsetHeight;
-      const scrollY = window.scrollY + window.innerHeight / 2;
-
-      const scrollProgress = (scrollY - parentTop) / parentHeight * 100;
-
-      if (scrollProgress >= 25) feature1.classList.add('visible');
-      if (scrollProgress >= 60) feature2.classList.add('visible');
-      if (scrollProgress >= 80) feature3.classList.add('visible');
-  }
-
-  window.addEventListener('scroll', handleScroll);
-  window.addEventListener('resize', handleScroll);
-  
-  handleScroll();
-</script>
-
-
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <dotlottie-wc 
+        src="https://lottie.host/7415fa5b-18fa-484e-8e1f-b96381ee259c/5L3vZUAV5h.lottie" 
+        class="responsive-lottie"
+        speed="1" 
+        autoplay 
+        loop>
+    </dotlottie-wc>
 </body>
 </html>
