@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="../assets/logo.jpg">
+  <link rel="icon" type="image/png" href="../assets/lionrobot.png" />
   <script type="module" src="../js/include.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
 </head>
@@ -26,85 +26,136 @@
   <main>
 
     <div>
+      
       <section>
         <div class="hero_sec_about">
             <h1>The Team That Makes <i>Magic</i> Happen</h1>
         </div>
-      </section>
-      <section style="position: sticky;top:0">
-        <div class="about_sec1">
-          <div class="about_sec1_leads">
-            <ul>
-              <li>
-                <div class="img-container">
-                  <img src="president.jpg" alt="President">
-                  <span class="img-label">President</span>
-                </div>
-              </li>
-              <li>
-                <div class="img-container">
-                  <img src="vicePresident.jpg" alt="Vice President">
-                  <span class="img-label">Vice President</span>
-                </div>
-              </li>
-              <li>
-                <div class="img-container">
-                  <img src="programmingLead.jpg" alt="Programming Lead">
-                  <span class="img-label">Programming Lead</span>
-                </div>
-              </li>
-              <li>
-                <div class="img-container">
-                  <img src="marketingLead1.jpg" alt="Marketing Lead 1">
-                  <span class="img-label">Marketing Lead 1</span>
-                </div>
-              </li>
-              <li>
-                <div class="img-container">
-                  <img src="marketingLead2.jpg" alt="Marketing Lead 2">
-                  <span class="img-label">Marketing Lead 2</span>
-                </div>
-              </li>
-              <li>
-                <div class="img-container">
-                  <img src="constructionLead.jpg" alt="Construction Lead">
-                  <span class="img-label">Construction Lead</span>
-                </div>
-              </li>
-            </ul>
+    <div class="team-section">
+      <div class="container">
+        <h1 class="section-title">Our Team</h1>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-img">
+              <img src="../assets/Ava.png" alt="Ava">
+              <div class="team-info">
+                <h3>Ava</h3>
+                <p>President</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img">
+              <img src="../assets/Lalith.png" alt="Lalith">
+              <div class="team-info">
+                <h3>Lalith</h3>
+                <p>Vice President</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img">
+              <img src="../assets/Neet.png" alt="Neet">
+              <div class="team-info">
+                <h3>Neet</h3>
+                <p>Programming Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img">
+              <img src="../assets/Eliana.png" alt="Eliana">
+              <div class="team-info">
+                <h3>Eliana</h3>
+                <p>Marketing Team Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img">
+              <img src="../assets/Shrika.png" alt="Shrika">
+              <div class="team-info">
+                <h3>Shrika</h3>
+                <p>Marketing SubLead 1</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img">
+              <img src="../assets/Lizzy.png" alt="Lizzy">
+              <div class="team-info">
+                <h3>Lizzy</h3>
+                <p>Marketing SubLead 2</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img">
+              <img src="../assets/Hung.png" alt="Hung">
+              <div class="team-info">
+                <h3>Hung</h3>
+                <p>Construction Lead</p>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section style="  position: sticky;top: 0;background-color: #56516d;">
-        <div class="about_sec2">
-          <h1>Proudly located in Leander </h1>
-          <video id="workshopVideo" src="../assets/video.mp4" muted controls></video>
-        </div>
-      </section>
-
-    </div>
-    <div class="about_sec3">
-      <div class="about_subsec3">
-        <h1>Members</h1>
-        <ul>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-          <li><p>Neet Ribadia</p></li>
-        </ul>
 
 
       </div>
     </div>
+      </section>
+      <section class="team-collab-section" style="position: sticky; top: 0;  padding: 4rem 2rem; padding-top: 12rem; padding-bottom: 10rem;">
+        <div class="team-collab-container">
+          <div class="team-video">
+            <video id="teamCollage" class="play-on-scroll" src="../assets/teamCollage.mp4" controls loop playsinline></video>
+          </div>
+          <div class="team-description">
+            <h2>How We Work Together</h2>
+            <p>At our core, we're a tight-knit group of problem-solvers who believe the best ideas come from working together. Every day, we bring our unique perspectives to the table, turning challenges into opportunities through creativity and collaboration.</p>
+            <p>Whether we're brainstorming in our workspace or testing new concepts, we thrive on open communication and mutual support. We celebrate each other's strengths and learn from our differences, because we know that's how innovation happens.</p>
+            <p>When we hit a snag, we don't point fingers—we come together, roll up our sleeves, and figure it out as a team. That's just how we do things here in Leander.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
   </main>
   <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('teamCollage');
+      let isPlaying = false;
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!isPlaying) {
+              video.play().catch(error => {
+                console.log('Video play failed:', error);
+              });
+              isPlaying = true;
+            }
+          } else {
+            if (isPlaying) {
+              video.pause();
+              isPlaying = false;
+            }
+          }
+        });
+      }, {
+        threshold: 0.5 // Play when 50% of the video is visible
+      });
+
+      observer.observe(video);
+
+      // Pause video when it ends to prevent autoplay issues
+      video.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.pause();
+        isPlaying = false;
+      });
+    });
+  </script>
 </body>
 
 </html>

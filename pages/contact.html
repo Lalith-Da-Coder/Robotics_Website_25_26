@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacts</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="../assets/logo.jpg">
+  <link rel="icon" type="image/png" href="../assets/lionrobot.png" />
   <script type="module" src="../js/include.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&libraries=maps&v=beta" defer>
   </script>
@@ -51,7 +51,7 @@
         <div class="contact_sec1_item2">
           <iframe class="map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.3774404791134!2d-97.85335612344609!3d30.538638494985445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b2970394b9265%3A0x61bff11e1e554717!2sLeander%20High%20School!5e0!3m2!1sen!2sus!4v1757299925064!5m2!1sen!2sus"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+             style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </section>
@@ -77,13 +77,51 @@
         </div>
 
       </div>
-      <form action="" class="contact_sec2_item2" id="contactform">
-        <input placeholder="Name" type="text">
-        <input placeholder="Email" type="email">
-        <input placeholder="Phone Number" type="tel">
-        <input type="datetime-local">
-        <input type="submit">
-      </form>
+     <form id="contactForm" class="contact_sec2_item2" action="https://formspree.io/f/mblblngv" method="POST">
+  <div class="form-row" style="display: flex; gap: 1rem; width: 30vw;">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+  <textarea name="message" placeholder="Your Message" required style="padding: 0.5rem; width: 29vw; border-radius: 0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center;"></textarea>
+  <button type="submit" style="width: 30vw; color: white; padding: 1.5rem">Send Message</button>
+  <div id="form-status" class="form-status"></div>
+</form>
+
+<script>
+  const form = document.getElementById('contactForm');
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const status = document.getElementById("form-status");
+    const data = new FormData(event.target);
+    
+    try {
+      const response = await fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        status.innerHTML = "Thanks for your message! We'll get back to you soon.";
+        form.reset();
+      } else {
+        const error = await response.json();
+        if (error.errors) {
+          status.innerHTML = error.errors.map(error => error.message).join(", ");
+        } else {
+          status.innerHTML = "Oops! There was a problem submitting your form";
+        }
+      }
+    } catch (error) {
+      status.innerHTML = "Oops! There was a problem submitting your form";
+    }
+  }
+  
+  form.addEventListener("submit", handleSubmit);
+</script>
       <div class="success-popup" id="successPopup">
         <div class="popup-content">
           <span class="popup-icon">✓</span>
