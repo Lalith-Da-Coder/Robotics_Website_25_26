@@ -7,9 +7,9 @@
   <title>Home</title>
   <!-- font-family: "Spartan", sans-serif; -->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="../assets/lionrobot.png" />
-  <script type="module" src="../js/include.js"></script>
+  <link rel="stylesheet" href="/Robotics_Website_25_26/pages/style.css">
+  <link rel="icon" type="image/png" href="/Robotics_Website_25_26/assets/lionrobot.png" />
+  <script type="module" src="/Robotics_Website_25_26/js/include.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
 </head>
 
@@ -19,37 +19,41 @@
     <l-grid size="60" speed="1.5" color="white"></l-grid>
     <p>Loading...</p>
   </div>
-  <div id="NavBarSection" data-include="./template.html#TemplateNavBar"></div>
+  <div id="NavBarSection" data-include="/Robotics_Website_25_26/pages/template.html#TemplateNavBar"></div>
   <main>
     <div>
       <section>
         <div class="hero_sec_contact">
-            <h1>Meet <i>VERITAS!</i></h1>
+          <h1>Meet <i>VERITAS!</i></h1>
         </div>
-      </section>    
-      
+      </section>
+
       <div id="parent">
         <div class="robot_desc">
-            <ul>
-                <li id="feature1">
-                    <h1>Magnetic Arm</h1>
-                    <p>We've designed a magnetic arm that can pick up and move objects with ease. The arm is made of durable materials and is easy to clean.</p>
-                </li>
-                <li id="feature2">
-                    <h1>Sorting System</h1>
-                    <p>Our sorting system is designed to sort objects based on their weight and size. The systems main goal is to automate the sorting process to seperate what we need from what we don't, this makes it more efficient and accurate.</p>
-                </li>
-                <li id="feature3">
-                    <h1>False Factoid Release</h1>
-                    <p>Our trash release system is designed to compelete our automation process. The system will release objects based on weight.</p>
-                </li>
-            </ul>
+          <ul>
+            <li id="feature1">
+              <h1>Magnetic Arm</h1>
+              <p>We've designed a magnetic arm that can pick up and move objects with ease. The arm is made of durable
+                materials and is easy to clean.</p>
+            </li>
+            <li id="feature2">
+              <h1>Sorting System</h1>
+              <p>Our sorting system is designed to sort objects based on their weight and size. The systems main goal is
+                to automate the sorting process to seperate what we need from what we don't, this makes it more
+                efficient and accurate.</p>
+            </li>
+            <li id="feature3">
+              <h1>False Factoid Release</h1>
+              <p>Our trash release system is designed to compelete our automation process. The system will release
+                objects based on weight.</p>
+            </li>
+          </ul>
         </div>
         <div class="robot_img">
-            <img src="../assets/robot.png" alt="Robot Image">
+          <img src="/Robotics_Website_25_26/assets/robot.png" alt="Robot Image">
         </div>
       </div>
-      
+
     </div>
 
     <div class="robot_sec2">
@@ -58,161 +62,161 @@
         <p>Discover the amazing capabilities of VERITAS with our interactive cards below.</p>
       </div>
       <div id="robot_sec2_cards">
-<!-- Magnetic Arm -->
-<div class="robot_sec2_card">
-  <div class="robot_sec2_card-content">
-    <div class="robot_sec2_card-image">
-      <i class="fa-solid fa-magnet"></i>
-    </div>
-    <div class="robot_sec2_card-info-wrapper">
-      <div class="robot_sec2_card-info">
-        <i class="fa-solid fa-magnet"></i>
-        <div class="robot_sec2_card-info-title">
-          <h3>Magnetic Arm</h3>  
-          <h4>Precision Handling</h4>
-          <p>360° rotation with 0.1mm precision, 5kg capacity, zero power hold.</p>
-          
-        </div>    
+        <!-- Magnetic Arm -->
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-solid fa-magnet"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-solid fa-magnet"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Magnetic Arm</h3>
+                  <h4>Precision Handling</h4>
+                  <p>360° rotation with 0.1mm precision, 5kg capacity, zero power hold.</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Sorting -->
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-solid fa-sort"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-solid fa-sort"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Smart Sorting</h3>
+                  <h4>Automated Classification</h4>
+                  <p>AI-powered system with 99.8% accuracy</p>
+                  <ul>
+                    <li>Real-time recognition</li>
+                    <li>Multi-category sorting</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Waste Management -->
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-solid fa-trash"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-solid fa-trash"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Waste Management</h3>
+                  <h4>Efficient Disposal</h4>
+                  <p>Highly accurate multi-stage system with auto-compaction </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Integration -->
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-solid fa-brain"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>AI Integration</h3>
+                  <h4>Smart Decision Making</h4>
+                  <p>Real-time learning for optimal performance.</p>
+                  <ul>
+                    <li>Predictive maintenance</li>
+                    <li>Performance optimization</li>
+                    <li>Anomaly detection</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Safety Systems -->
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Safety Systems</h3>
+                  <h4>Advanced Protection</h4>
+                  <p>Important parts bolted down for comprehensive safety for all operations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Power Management -->
+        <div class="robot_sec2_card">
+          <div class="robot_sec2_card-content">
+            <div class="robot_sec2_card-image">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="robot_sec2_card-info-wrapper">
+              <div class="robot_sec2_card-info">
+                <i class="fa-solid fa-bolt"></i>
+                <div class="robot_sec2_card-info-title">
+                  <h3>Power Management</h3>
+                  <h4>Efficient Energy Use</h4>
+                  <p>Fast charging/energy recovery, comes with amazing battery health</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- Smart Sorting -->
-<div class="robot_sec2_card">
-  <div class="robot_sec2_card-content">
-    <div class="robot_sec2_card-image">
-      <i class="fa-solid fa-sort"></i>
-    </div>
-    <div class="robot_sec2_card-info-wrapper">
-      <div class="robot_sec2_card-info">
-        <i class="fa-solid fa-sort"></i>
-        <div class="robot_sec2_card-info-title">
-          <h3>Smart Sorting</h3>  
-          <h4>Automated Classification</h4>
-          <p>AI-powered system with 99.8% accuracy</p>
-          <ul>
-            <li>Real-time recognition</li>
-            <li>Multi-category sorting</li>
-          </ul>
-        </div>    
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Waste Management -->
-<div class="robot_sec2_card">
-  <div class="robot_sec2_card-content">
-    <div class="robot_sec2_card-image">
-      <i class="fa-solid fa-trash"></i>
-    </div>
-    <div class="robot_sec2_card-info-wrapper">
-      <div class="robot_sec2_card-info">
-        <i class="fa-solid fa-trash"></i>
-        <div class="robot_sec2_card-info-title">
-          <h3>Waste Management</h3>  
-          <h4>Efficient Disposal</h4>
-          <p>Highly accurate multi-stage system with auto-compaction </p>
-          
-        </div>    
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- AI Integration -->
-<div class="robot_sec2_card">
-  <div class="robot_sec2_card-content">
-    <div class="robot_sec2_card-image">
-      <i class="fa-solid fa-brain"></i>
-    </div>
-    <div class="robot_sec2_card-info-wrapper">
-      <div class="robot_sec2_card-info">
-        <i class="fa-solid fa-brain"></i>
-        <div class="robot_sec2_card-info-title">
-          <h3>AI Integration</h3>  
-          <h4>Smart Decision Making</h4>
-          <p>Real-time learning for optimal performance.</p>
-          <ul>
-            <li>Predictive maintenance</li>
-            <li>Performance optimization</li>
-            <li>Anomaly detection</li>
-          </ul>
-        </div>    
-      </div>  
-    </div>
-  </div>
-</div>
-
-<!-- Safety Systems -->
-<div class="robot_sec2_card">
-  <div class="robot_sec2_card-content">
-    <div class="robot_sec2_card-image">
-      <i class="fa-solid fa-shield-halved"></i>
-    </div>
-    <div class="robot_sec2_card-info-wrapper">
-      <div class="robot_sec2_card-info">
-        <i class="fa-solid fa-shield-halved"></i>
-        <div class="robot_sec2_card-info-title">
-          <h3>Safety Systems</h3>  
-          <h4>Advanced Protection</h4>
-          <p>Important parts bolted down for comprehensive safety for all operations.</p>
-        </div>    
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Power Management -->
-<div class="robot_sec2_card">
-  <div class="robot_sec2_card-content">
-    <div class="robot_sec2_card-image">
-      <i class="fa-solid fa-bolt"></i>
-    </div>
-    <div class="robot_sec2_card-info-wrapper">
-      <div class="robot_sec2_card-info">
-        <i class="fa-solid fa-bolt"></i>
-        <div class="robot_sec2_card-info-title">
-          <h3>Power Management</h3>  
-          <h4>Efficient Energy Use</h4>
-          <p>Fast charging/energy recovery, comes with amazing battery health</p>
-
-        </div>    
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
-          
     </div>
 
-   
+
   </main>
-<script>document.getElementById("robot_sec2_cards").onmousemove = e => {
-  for(const card of document.getElementsByClassName("robot_sec2_card")) {
-    const rect = card.getBoundingClientRect(),
+  <script>document.getElementById("robot_sec2_cards").onmousemove = e => {
+      for (const card of document.getElementsByClassName("robot_sec2_card")) {
+        const rect = card.getBoundingClientRect(),
           x = e.clientX - rect.left,
           y = e.clientY - rect.top;
 
-    card.style.setProperty("--mouse-x", `${x}px`);
-    card.style.setProperty("--mouse-y", `${y}px`);
-  };
-}
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      };
+    }
 
-</script>
-<script>
-  const parent = document.getElementById('parent');
-  const feature1 = document.getElementById('feature1');
-  const feature2 = document.getElementById('feature2');
-  const feature3 = document.getElementById('feature3');
+  </script>
+  <script>
+    const parent = document.getElementById('parent');
+    const feature1 = document.getElementById('feature1');
+    const feature2 = document.getElementById('feature2');
+    const feature3 = document.getElementById('feature3');
 
-  function handleScroll() {
+    function handleScroll() {
       if (window.innerWidth <= 768) {
-          feature1.classList.add('visible');
-          feature2.classList.add('visible');
-          feature3.classList.add('visible');
-          return;
+        feature1.classList.add('visible');
+        feature2.classList.add('visible');
+        feature3.classList.add('visible');
+        return;
       }
 
       const parentTop = parent.offsetTop;
@@ -224,15 +228,15 @@
       if (scrollProgress >= 25) feature1.classList.add('visible');
       if (scrollProgress >= 60) feature2.classList.add('visible');
       if (scrollProgress >= 80) feature3.classList.add('visible');
-  }
+    }
 
-  window.addEventListener('scroll', handleScroll);
-  window.addEventListener('resize', handleScroll);
-  
-  handleScroll();
-</script>
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
 
-  <div id="FooterSection" data-include="./template.html#TemplateFooter"></div>
+    handleScroll();
+  </script>
+
+  <div id="FooterSection" data-include="/Robotics_Website_25_26/pages/template.html#TemplateFooter"></div>
   <!-- <script>
     const clickSound = document.getElementById('click-sound');
 
